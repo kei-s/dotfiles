@@ -1,0 +1,122 @@
+"2.1 (created: 2009/05/21 13:13:06)
+
+set guioptions+=B
+
+" move
+noremap j 3j
+noremap k 3k
+noremap J <C-d>
+noremap K <C-u>
+set scroll=7
+
+" select next/previous tab
+noremap <C-l> gt
+noremap <C-h> gT
+noremap <C-j> gt
+noremap <C-k> gT
+noremap <C-w>l gt
+noremap <C-w>h gT
+
+" move current tab left/right
+map <S-Right> :tablast<CR>
+map <S-Left> :tabfirst<CR>
+"map <C-L> :tabmove! +1<CR>
+"map <C-H> :tabmove! -1<CR>
+
+" ex mode
+cmap <C-d> <Tab>
+cmap <C-n> <Tab>
+cmap <C-p> <S-Tab>
+
+" ex mode でインクリメント補完
+set wildoptions=auto
+
+" :[tab]open の補完対象と順番
+set complete=sl
+
+" リンクのURIをコマンドラインに表示
+set showstatuslinks=2
+
+" ページロード時にテキストボックスにフォーカスするのを防ぐ
+set focuscontent
+
+" Beep設定
+set visualbell
+hi Bell opacity: .3;
+
+" ページのアクセスキーを無効化
+set! ui.key.generalAccessKey=0
+
+" Awesomebarの補完対象にBookmarkletを含める&件数を変更
+set! browser.urlbar.filter.javascript=false
+set! browser.urlbar.maxRichResult=20
+
+" Gmail/LDR/Fastladder/OpenFL/はてブでは新規タブをバックグラウンドで開く
+autocmd LocationChange (?!https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp/)) :set! browser.tabs.loadDivertedInBackground=false
+autocmd LocationChange https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp/) :set! browser.tabs.loadDivertedInBackground=true
+
+" Add Mapping `C-c' copy or stop loading
+javascript <<EOF
+mappings.addUserMap([modes.NORMAL,modes.VISUAL],['<C-c>'], 'Copy selected text or stop loading',
+  function(){
+    var sel = window.content.window.getSelection().toString();
+    if (sel){
+      copyToClipboard(sel,true);
+    } else {
+      BrowserStop();
+      echo('Stopped loading !');
+    }
+  }
+);
+EOF
+
+" Show feed-button to statusbar
+javascript <<EOF
+(function () {
+  var feedPanel = document.createElement('statusbarpanel');
+  var feedButton = document.getElementById('feed-button');
+  feedPanel.setAttribute('id','feed-panel-clone');
+  feedPanel.appendChild(feedButton.cloneNode(true));
+  feedButton.parentNode.removeChild(feedButton);
+  document.getElementById('status-bar').insertBefore(feedPanel,document.getElementById('security-button'));
+})();
+EOF
+
+" plugins
+" ime_controller.js
+let g:ex_ime_mode = "inactive"
+let g:textarea_ime_mode = "inactive"
+
+" for HatenaBookmark Extension
+javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+
+" for feedSomeKeys_3.js
+command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
+lazy fmaps -u='(fastladder|livedoor)\.com/reader' j k s a p o v c i,p <Space> <S-Space> z b < > q w e,g
+lazy fmaps -u='mail\.google\.com/mail' c / j k n p o u e x s r a # [ ] z ? gi gs gt gd ga gc
+lazy fmaps -u='mail\.google\.com/mail/.*/[0-9a-f]+$' c / j,n k,p n,j p,k o u e x s r a # [ ] ? gi gs gt gd ga gc
+lazy fmaps -u='www\.google\.[^/]+/reader' -events=vkeypress j J k K <Space> <S-Space> n p N P X O gh ga gs gS gu gt gT gd gf gF gc s t e S D v o l c C m A T r u 1 2 / a ? =
+"lazy fmaps -u='www\.google\.[^/]+/reader' -events=vkeyup z
+lazy fmaps -u='www\.google\.com/calendar/' -events=vkeydown t a d w m x c e <Del> / + q s ?
+lazy fmaps -u='friendfeed\.com/' -events=keydown p P q / gh gd gm gb
+
+" for migemo_hint.js
+set hintmatching=custom
+
+" for copy.js
+javascript <<EOF
+liberator.globalVariables.copy_templates = [
+  { label: 'plain',    value: '"%TITLE%" %URL%', map: ',y' },
+  { label: '2line',    value: '%TITLE%\n%URL%' },
+  { label: 'title',          value: '%TITLE%' },
+  { label: 'anchor',         value: '<a href="%URL%">%TITLE%</a>' },
+  { label: 'selanchor',      value: '<a href="%URL%" title="%TITLE%">%SEL%</a>' },
+  { label: 'htmlblockquote', value: '<blockquote cite="%URL%" title="%TITLE%">%HTMLSEL%</blockquote>' },
+  { label: 'ASIN',   value: 'copy ASIN code from Amazon', custom: function(){return content.document.getElementById('ASIN').value;} },
+];
+EOF
+
+" set "runtimepath=C:\\Documents and Settings\\Kei\\vimperator"
+" source! "C:\\Documents and Settings\\Kei\\_vimperatorrc.local"
+
+" vim: set ft=vimperator:

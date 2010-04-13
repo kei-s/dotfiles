@@ -1,0 +1,12 @@
+" load .vimrc
+"source $HOME/dotfiles/.gvimrc
+
+if has('gui_win32')
+  set columns=130
+  set lines=60
+  set go-=T
+  set bg=dark
+  colorscheme inkpot
+  set guifont=Consolas:h12:cSHIFTJIS
+"  set guifontwide=ARISAKA-“™•:h11
+endif

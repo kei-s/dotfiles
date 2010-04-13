@@ -1,0 +1,53 @@
+# require 'autotest/redgreen'
+# require 'autotest/growl'
+require 'autotest/screen'
+Autotest::HOOKS.delete(:interrupt)
+Autotest::Screen.statusline = %q[[%02c] %`%-w%{=b bw}%n %t%{-}%+w %=]
+
+class Autotest::Screen
+  SCREEN_COLOR[:green] = 'gw'
+  SCREEN_COLOR[:yellow] = 'yk'
+
+  Autotest.add_hook :run_command do |at|
+    message 'Running' if execute?
+  end
+
+  Autotest.add_hook :quit do |at|
+    clear if execute?
+  end
+
+  Autotest.add_hook :ran_command do |at|
+    return unless execute?
+    results = [at.results].flatten.join("\n")
+    output = results.slice(/(\d+)\sexamples?,\s*(\d+)\s.*failures?(?:,\s*(\d+)\s.*pendings?)?/)
+    if output
+      ex,fail,pend = $~.captures.map {|e| e.to_i}
+      if 0 < fail
+        message "FAIL #{ex}ex, F:#{fail} ", :red
+      elsif 0 < pend
+        message "Pend #{ex}ex, F:#{fail} P:#{pend}", :yellow
+      else
+        message "All Green #{ex}ex", :green
+      end
+    end
+  end
+end
+
+module Autotest::Growl
+ def self.growl title, msg, img="~/.rails_ok.png", pri=0, sticky=""
+   msg += " at #{Time.now.strftime('%Y-%m-%d %H:%M:%S')}"
+   system "growlnotify -n autotest --image #{img} -p #{pri} -m #{msg.inspect} #{title} #{sticky}"
+ end
+
+ Autotest.add_hook :ran_command do |at|
+   results = [at.results].flatten.join("\n")
+   output = results.slice(/(\d+)\s+examples?,\s*(\d+)\s+failures?(,\s*(\d+)\s+not implemented)?/)
+   if output
+     if $~[2].to_i > 0
+       growl "Test Results", "#{output}", "~/.rails_fail.png", 2
+     else
+       growl "Test Results", "#{output}", "~/.rails_ok.png"
+     end
+   end
+ end
+end

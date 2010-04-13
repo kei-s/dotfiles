@@ -1,0 +1,4 @@
+" load .vimrc
+source $HOME/dotfiles/.vimrc
+set runtimepath^=$HOME/dotfiles/.vim
+set runtimepath+=$HOME/dotfiles/.vim/after
