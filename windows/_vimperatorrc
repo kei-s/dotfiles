@@ -1,0 +1,3 @@
+" load .vimperatorrc
+source ~/dotfiles/.vimperatorrc
+set runtimepath^=~/dotfiles/.vimperator
