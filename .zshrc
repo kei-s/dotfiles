@@ -16,7 +16,9 @@ precmd() {
   [[ -n "$vcs_info_msg_0_" ]] && psvar[1]="$vcs_info_msg_0_"
 
   # for rvm
-  [[ -s ~/.rvm/bin/rvm-prompt ]] && psvar[2]="$(~/.rvm/bin/rvm-prompt v)"
+  [[ -s ~/.rvm/bin/rvm-prompt ]] &&
+  [[ "$(~/.rvm/bin/rvm-prompt v)" != "system" ]] &&
+  psvar[2]="$(~/.rvm/bin/rvm-prompt v)"
 }
 VCS_PROMPT="%1(v|%F{green} %1v%f|)"
 RUBY_PROMPT="%2(v| %U%B%F{magenta}(%2v)%f%b%u|)"
