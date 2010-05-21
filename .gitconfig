@@ -2,3 +2,5 @@
 	email = kei-s@mbc.nifty.com
 [color]
 	ui = auto
+[core]
+	pager = lv -c
