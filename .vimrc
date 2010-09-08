@@ -224,4 +224,4 @@ nnoremap <silent> <C-f><C-e> :FufEditInfo<CR>
 nnoremap <silent> <C-f><C-r> :FufRenewCache<CR>
 
 " Outpuz.vim
-let g:outputz_secret_key = 'xAuArU1SNvRH'
+"let g:outputz_secret_key = 'xAuArU1SNvRH'

@@ -17,7 +17,7 @@ precmd() {
 
   # for rvm
   [[ -s ~/.rvm/bin/rvm-prompt ]] &&
-  [[ "$(~/.rvm/bin/rvm-prompt v)" != "system" ]] &&
+  [[ "$(~/.rvm/bin/rvm-prompt v)" != "" ]] &&
   psvar[2]="$(~/.rvm/bin/rvm-prompt v)"
 }
 VCS_PROMPT="%1(v|%F{green} %1v%f|)"
