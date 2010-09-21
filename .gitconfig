@@ -1,6 +1,14 @@
 [user]
-	email = kei-s@mbc.nifty.com
+  email = kei-s@mbc.nifty.com
 [color]
-	ui = auto
+  ui = auto
 [core]
-	pager = lv -c
+  pager = lv -c
+[alias]
+  br = branch
+  ci = commit -v
+  co = checkout
+  ds = diff --staged
+  lg = log --graph
+  lp = log -p --stat
+  st = status

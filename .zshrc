@@ -74,6 +74,9 @@ alias cp="cp -i"
 alias h="history"
 alias x="exit"
 
+alias g="git"
+alias v="vim"
+
 alias w3m="w3m -no-mouse"
 
 # History
