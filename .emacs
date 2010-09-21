@@ -142,11 +142,6 @@
   ;; If there is more than one, they won't work right.
  '(js2-keyword-face ((t (:foreground "DodgerBlue")))))
 
-(require 'outputz)
-(setq outputz-key "xAuArU1SNvRH")      ;; 復活の呪文
-(setq outputz-uri "http://macbook.kei-s.jp/emacs/%s") ;; 適当なURL。%sにmajor-modeの名前が入るので、major-modeごとのURLで投稿できます。
-(global-outputz-mode t)
-
 ;; Tramp  Over SSH
 (require 'tramp)
 
