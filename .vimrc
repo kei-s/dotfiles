@@ -207,3 +207,17 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" surround.vim
+" Ruby http://d.hatena.ne.jp/ursm/20080402/1207150539
+let g:surround_{char2nr('%')} = "%(\r)"
+let g:surround_{char2nr('w')} = "%w(\r)"
+let g:surround_{char2nr('#')} = "#{\r}"
+let g:surround_{char2nr('e')} = "begin \r end"
+let g:surround_{char2nr('i')} = "if \1if\1 \r end"
+let g:surround_{char2nr('u')} = "unless \1unless\1 \r end"
+let g:surround_{char2nr('c')} = "class \1class\1 \r end"
+let g:surround_{char2nr('m')} = "module \1module\1 \r end"
+let g:surround_{char2nr('d')} = "def \1def\1\2args\r..*\r(&)\2 \r end"
+let g:surround_{char2nr('p')} = "\1method\1 do \2args\r..*\r|&| \2\r end"
+let g:surround_{char2nr('P')} = "\1method\1 {\2args\r..*\r|&|\2 \r }"
