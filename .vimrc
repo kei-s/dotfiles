@@ -77,6 +77,8 @@ command! -bang -bar -complete=file -nargs=? Sjis  Cp932<bang> <args>
 " Disable some dangerous key.
 nnoremap ZZ  <Nop>
 nnoremap ZQ  <Nop>
+" turn off highlighting
+nnoremap <silent> gh :nohlsearch<CR>
 
 " Now we set some defaults for the editor
 set scrolloff=5   " Scrool offset
