@@ -23,6 +23,8 @@ map <S-Left> :tabfirst<CR>
 "map <C-L> :tabmove! +1<CR>
 "map <C-H> :tabmove! -1<CR>
 
+" undo list
+noremap U :undo<Space>
 " ex mode
 cmap <C-d> <Tab>
 cmap <C-n> <Tab>
