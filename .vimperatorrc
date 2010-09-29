@@ -44,6 +44,9 @@ set showstatuslinks=2
 " ページロード時にテキストボックスにフォーカスするのを防ぐ
 set focuscontent
 
+" Open in New Tab
+set newtab=help,addons,extoptions
+
 " Beep設定
 set visualbell
 hi Bell opacity: .3;
