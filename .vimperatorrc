@@ -147,7 +147,7 @@ set hintmatching=custom
 javascript <<EOF
 liberator.globalVariables.copy_templates = [
   { label: 'plain',    value: '"%TITLE%" %URL%', map: ',y' },
-  { label: '2line',    value: '%TITLE%\n%URL%' },
+  { label: '2line',    value: '%TITLE%\n%URL%', map: ',Y' },
   { label: 'title',          value: '%TITLE%' },
   { label: 'anchor',         value: '<a href="%URL%">%TITLE%</a>' },
   { label: 'selanchor',      value: '<a href="%URL%" title="%TITLE%">%SEL%</a>' },
