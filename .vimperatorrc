@@ -120,7 +120,15 @@ let g:ex_ime_mode = "inactive"
 let g:textarea_ime_mode = "inactive"
 
 " for HatenaBookmark Extension
-javascript if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+javascript << EOF
+liberator.globalVariables.hBookmark_shortcuts = {
+  hintsAdd     : 'A',
+  hintsComment : ' ',
+  add          : ['c'],
+  comment      : ['C'],
+};
+if (typeof hBookmark != 'undefined') liberator.loadScript('chrome://hatenabookmark/content/vimperator/plugin/hatenabookmark.js', {__proto__: this});
+EOF
 
 " for feedSomeKeys_3.js
 command! -nargs=+ lazy autocmd VimperatorEnter .* <args>
