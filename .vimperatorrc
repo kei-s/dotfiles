@@ -156,6 +156,16 @@ liberator.globalVariables.copy_templates = [
 ];
 EOF
 
+" for smartGoToParent.js
+javascript <<EOF
+mappings.addUserMap([modes.NORMAL],["gu"],'Smart Go to Parent',
+  function(count) {
+    liberator.execute(':'+(count?count:'')+'goParent');
+  },
+  { count: true }
+);
+EOF
+
 " set "runtimepath=C:\\Documents and Settings\\Kei\\vimperator"
 " source! "C:\\Documents and Settings\\Kei\\_vimperatorrc.local"
 
