@@ -155,6 +155,23 @@ liberator.globalVariables.copy_templates = [
   { label: 'selanchor',      value: '<a href="%URL%" title="%TITLE%">%SEL%</a>' },
   { label: 'htmlblockquote', value: '<blockquote cite="%URL%" title="%TITLE%">%HTMLSEL%</blockquote>' },
   { label: 'ASIN',   value: 'copy ASIN code from Amazon', custom: function(){return content.document.getElementById('ASIN').value;} },
+  { label: 'tweet',   value: 'copy TWEET message from Twitter', custom: function(){
+      if (/#!/.test(content.location.href)) {
+        return [
+          content.document.getElementsByClassName('tweet')[0].getAttribute('data-screen-name'),
+          content.document.getElementsByClassName('tweet-text')[0].textContent,
+          content.location.href
+        ].join(' ');
+      }
+      else {
+        return [
+          content.document.getElementsByClassName('screen-name')[0].textContent+':',
+          content.document.getElementsByClassName('entry-content')[0].textContent,
+          content.location.href
+        ].join(' ');
+      }
+    }
+  },
 ];
 EOF
 
