@@ -4,6 +4,7 @@
   ui = auto
 [core]
   pager = lv -c
+  excludesfile = ~/dotfiles/.vim.bundle.gitignore
 [alias]
   br = branch
   ci = commit -v
