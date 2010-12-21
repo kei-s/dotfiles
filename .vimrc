@@ -6,6 +6,10 @@ if !exists('s:loaded_my_vimrc')
   set nocompatible  " to use many extensions of Vim.
 endif
 
+" for pathogen
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
   if &term ==# 'xterm' || &term ==# 'screen-bce'
