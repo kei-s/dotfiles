@@ -58,6 +58,11 @@ set! ui.key.generalAccessKey=0
 set! browser.urlbar.filter.javascript=false
 set! browser.urlbar.maxRichResult=20
 
+" fix Complement view
+" http://vimperator.g.hatena.ne.jp/nokturnalmortum/20100412/1271062922
+hi! CompResult -a -moz-binding: url(chrome://liberator/content/bindings.xml#compitem-td);
+hi! CompDesc -a -moz-binding: url(chrome://liberator/content/bindings.xml#compitem-td);
+
 " Gmail/LDR/Fastladder/OpenFL/はてブでは新規タブをバックグラウンドで開く
 autocmd LocationChange (?!https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp/)) :set! browser.tabs.loadDivertedInBackground=false
 autocmd LocationChange https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp/) :set! browser.tabs.loadDivertedInBackground=true
