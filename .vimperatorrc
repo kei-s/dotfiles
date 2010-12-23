@@ -156,6 +156,7 @@ liberator.globalVariables.copy_templates = [
   { label: '2line',    value: '%TITLE%\n%URL%', map: ',Y' },
   { label: 'title',          value: '%TITLE%' },
   { label: 'anchor',         value: '<a href="%URL%">%TITLE%</a>' },
+  { label: 'hatena',         value: '[%URL%:title=%TITLE%]' },
   { label: 'selanchor',      value: '<a href="%URL%" title="%TITLE%">%SEL%</a>' },
   { label: 'htmlblockquote', value: '<blockquote cite="%URL%" title="%TITLE%">%HTMLSEL%</blockquote>' },
   { label: 'ASIN',   value: 'copy ASIN code from Amazon', custom: function(){return content.document.getElementById('ASIN').value;} },
