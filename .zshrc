@@ -141,7 +141,3 @@ fi
 #if [ x$TERM = xscreen ]; then
 #  alias ssh=ssh_screen
 #fi
-
-# rvm-install added line:
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
