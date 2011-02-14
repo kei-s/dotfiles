@@ -94,7 +94,7 @@ setopt auto_list
 # Auto Complete
 
 autoload -U compinit
-compinit
+compinit -u
 
 # screen
 
