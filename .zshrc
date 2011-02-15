@@ -37,32 +37,31 @@ function vcs_info_for_git() {
   VCS_GIT_PROMPT_UNMERGED="%{${fg[magenta]}%}U%{${reset_color}%}"
   VCS_GIT_PROMPT_UNTRACKED="%{${fg[red]}%}?%{${reset_color}%}"
 
-  if [[ -z $(git status -s 2> /dev/null) ]]; then
+  INDEX=$(git status --porcelain 2> /dev/null)
+  if [[ -z "$INDEX" ]];then
     STATUS="${VCS_GIT_PROMPT_CLEAN}${VCS_GIT_PROMPT}%{${reset_color}%}"
   else
     STATUS=" ${VCS_GIT_PROMPT_DIRTY}${VCS_GIT_PROMPT}%{${reset_color}%}"
-  fi
-
-  INDEX=$(git status --porcelain 2> /dev/null)
-  if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
-    STATUS="$VCS_GIT_PROMPT_UNMERGED$STATUS"
-  fi
-  if $(echo "$INDEX" | grep '^R ' &> /dev/null); then
-    STATUS="$VCS_GIT_PROMPT_RENAMED$STATUS"
-  fi
-  if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
-    STATUS="$VCS_GIT_PROMPT_DELETED$STATUS"
-  fi
-  if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
-    STATUS="$VCS_GIT_PROMPT_UNTRACKED$STATUS"
-  fi
-  if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
-    STATUS="$VCS_GIT_PROMPT_MODIFIED$STATUS"
-  fi
-  if $(echo "$INDEX" | grep '^A ' &> /dev/null); then
-    STATUS="$VCS_GIT_PROMPT_ADDED$STATUS"
-  elif $(echo "$INDEX" | grep '^M ' &> /dev/null); then
-    STATUS="$VCS_GIT_PROMPT_ADDED$STATUS"
+    if $(echo "$INDEX" | grep '^UU ' &> /dev/null); then
+      STATUS="$VCS_GIT_PROMPT_UNMERGED$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^R ' &> /dev/null); then
+      STATUS="$VCS_GIT_PROMPT_RENAMED$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^ D ' &> /dev/null); then
+      STATUS="$VCS_GIT_PROMPT_DELETED$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^?? ' &> /dev/null); then
+      STATUS="$VCS_GIT_PROMPT_UNTRACKED$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^ M ' &> /dev/null); then
+      STATUS="$VCS_GIT_PROMPT_MODIFIED$STATUS"
+    fi
+    if $(echo "$INDEX" | grep '^A ' &> /dev/null); then
+      STATUS="$VCS_GIT_PROMPT_ADDED$STATUS"
+    elif $(echo "$INDEX" | grep '^M ' &> /dev/null); then
+      STATUS="$VCS_GIT_PROMPT_ADDED$STATUS"
+    fi
   fi
   echo "${STATUS}"
 }
