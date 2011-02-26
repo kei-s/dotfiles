@@ -5,6 +5,8 @@
 [core]
   pager = lv -c
   excludesfile = ~/dotfiles/global.gitignore
+[merge]
+  tool = vimdiff
 [alias]
   br = branch
   ci = commit -v
