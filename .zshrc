@@ -96,6 +96,9 @@ bindkey '^@'    backward-delete-char
 bindkey "^[[3~" backward-delete-char
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
+# http://subtech.g.hatena.ne.jp/secondlife/20110222/1298354852
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 
 # Auto cd
 setopt auto_cd
