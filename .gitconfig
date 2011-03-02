@@ -11,7 +11,9 @@
   br = branch
   ci = commit -v
   co = checkout
+  pr = pull --rebase
   ds = diff --staged
   lg = log --graph
   lp = log -p --stat
+  lo = log --pretty=oneline
   st = status
