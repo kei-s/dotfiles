@@ -1,4 +1,7 @@
-"2.1 (created: 2009/05/21 13:13:06)
+"3.0
+
+"for nocompatible extensions
+set! extensions.checkCompatibility.4.0=false
 
 "set guioptions+=B
 set toolbars+=addons,bookmarks,nonavigation
