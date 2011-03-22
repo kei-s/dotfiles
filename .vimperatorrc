@@ -1,6 +1,7 @@
 "2.1 (created: 2009/05/21 13:13:06)
 
-set guioptions+=B
+"set guioptions+=B
+set toolbars+=addons,bookmarks,nonavigation
 
 " move
 noremap j 3j
@@ -33,7 +34,7 @@ cmap <C-p> <S-Tab>
 vmap <silent> <C-g> y<Esc><Esc>P
 
 " ex mode でインクリメント補完
-set wildoptions=auto
+"set wildoptions=auto
 
 " :[tab]open の補完対象と順番
 set complete=sl
