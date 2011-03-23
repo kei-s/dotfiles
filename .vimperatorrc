@@ -147,8 +147,8 @@ lazy fmaps -u='www\.google\.[^/]+/reader' -events=vkeypress j J k K <Space> <S-S
 "lazy fmaps -u='www\.google\.[^/]+/reader' -events=vkeyup z
 lazy fmaps -u='www\.google\.com/calendar/' -events=vkeydown t a d w m x c e <Del> / + q s ?
 lazy fmaps -u='friendfeed\.com/' -events=keydown p P q / gh gd gm gb
-lazy fmaps -urls='^http://twitter\.com/#' j k ?
-lazy fmaps -urls='^http://twitter\.com/#' -events=vkeydown n m t gh gr gp gf gm \" r
+lazy fmaps -urls='^http://twitter\.com/#' j k ? <Space> .
+lazy fmaps -urls='^http://twitter\.com/#' -events=vkeydown t m n gh gr gp gf gm gu
 
 " for copy.js
 javascript <<EOF
