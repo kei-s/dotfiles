@@ -6,9 +6,18 @@ if !exists('s:loaded_my_vimrc')
   set nocompatible  " to use many extensions of Vim.
 endif
 
-" for pathogen
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" for vundle
+set rtp+=~/.vim/vundle/
+call vundle#rc()
+Bundle 'Shougo/neocomplcache'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'clones/vim-l9'
+Bundle 'edsono/vim-matchit'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-rails'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'Shougo/unite.vim'
+Bundle 'h1mesuke/unite-outline'
 
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
@@ -188,6 +197,7 @@ nnoremap [unite] <Nop>
 nmap f [unite]
 nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
+nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " split
 au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
 au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
