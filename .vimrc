@@ -18,6 +18,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'digitaltoad/vim-jade'
 Bundle 'Shougo/unite.vim'
 Bundle 'h1mesuke/unite-outline'
+Bundle 'tpope/vim-fugitive'
 
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
