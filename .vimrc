@@ -196,7 +196,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " unite.vim
 let g:unite_enable_start_insert=1
 nnoremap [unite] <Nop>
-nmap f [unite]
+nmap <Space> [unite]
 nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
