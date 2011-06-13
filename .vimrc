@@ -142,7 +142,7 @@ vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 " helpfiles is compressed. Other helpfiles are stated in the tags-file.
 " set helpfile=$VIMRUNTIME/doc/help.txt.gz
 set helpfile=$VIMRUNTIME/doc/help.txt
-set helplang=ja,en
+set helplang=en
 
 set modelines=0
 
