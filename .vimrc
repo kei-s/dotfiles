@@ -67,7 +67,7 @@ let &statusline .='%<[%n]%f %h%m%r%w'
 let &statusline .= '%='
   "" temporary disabled.
   "let &statusline .= '(%{' . s:SID_PREFIX() . 'vcs_branch_name(getcwd())}) '
-let &statusline .= '[%{( &l:fileencoding == "" ? &encoding : &l:fileencoding ).":".&fileformat}]%y'
+let &statusline .= '%{fugitive#statusline()}[%{( &l:fileencoding == "" ? &encoding : &l:fileencoding ).":".&fileformat}]%y'
 let &statusline .= ' %-14.(%l,%c%V%) %P'
 
 let mapleader = ','
