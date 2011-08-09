@@ -1,0 +1,4 @@
+See http://edds.github.com/Simples.SkypeChatStyle/
+
+$ git clone git@github.com:edds/Simples.SkypeChatStyle.git
+$ ln -s ~/dotfiles/skype_theme/Simples.SkypeChatStyle ~/Library/Application\ Support/Skype/ChatStyles
