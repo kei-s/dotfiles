@@ -20,6 +20,8 @@ Bundle 'Shougo/unite.vim'
 Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'vim-scripts/JSON.vim '
 
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
@@ -157,6 +159,8 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:<
 set list
 
 " Plugins
+" JSON.vim
+autocmd! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
 " Neocomplecache
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
