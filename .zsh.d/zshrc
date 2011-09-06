@@ -168,7 +168,6 @@ case $(uname) in
     else
       alias ls="ls -haFG"
       alias la="ls -lhAFG"
-      alias ll=la
     fi
     alias ps="ps -fU$(whoami)"
     ;;
@@ -182,10 +181,12 @@ case $(uname) in
     alias ps="ps -fl -u$(/usr/xpg4/bin/id -un)"
     ;;
   *)
+    alias ls="ls -aFh --color=auto --show-control-chars"
     alias la="ls -lhAF --color=auto"
     alias ps="ps -fU$(whoami) --forest"
     ;;
 esac
+alias ll=la
 
 # title
 update_title() {
