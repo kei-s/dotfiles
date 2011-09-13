@@ -13,7 +13,7 @@ autoload -Uz add-zsh-hook
 function _precmd_rvm() {
   psvar=()
   [[ -s ~/.rvm/bin/rvm-prompt ]] &&
-  [[ "$(~/.rvm/bin/rvm-prompt v)" != "" ]] &&
+  [[ "$(~/.rvm/bin/rvm-prompt v)" != "1.9.2" ]] &&
   psvar[1]="$(~/.rvm/bin/rvm-prompt v)"
 }
 add-zsh-hook precmd _precmd_rvm
