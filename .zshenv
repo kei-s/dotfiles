@@ -1,3 +1,10 @@
+# .zshenv
+source ~/.zsh.d/zshenv
+
+USERNAME="kei"
+export USERNAME
+export NODE_PATH=/usr/local/lib/node_modules
+
 export LC_COLLATE=C
 export LC_CTYPE=ja_JP.UTF-8
 export LC_MESSAGES=C
