@@ -19,3 +19,5 @@
   lo = log --pretty=oneline
   st = status
   cp = cherry-pick
+[push]
+  default = tracking
