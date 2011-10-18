@@ -116,6 +116,8 @@ RUBY_PROMPT="%1(v| %U%B%{${fg[magenta]}%}(%1v)%{${reset_color}%}%b%u|)"
 PROMPT="[%n@%m]%# "
 RPROMPT='[%~]$RUBY_PROMPT$(vcs_info_with_color)'
 
+# Additional completion definitions https://github.com/zsh-users/zsh-completions
+fpath=(~/.zsh.d/zsh-completions $fpath)
 # Auto Completion
 autoload -U compinit
 compinit -u
