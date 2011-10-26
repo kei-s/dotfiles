@@ -111,10 +111,11 @@ function vcs_info_with_color() {
     echo " ${VCS_PROMPT_PREFIX}${STATUS}${VCS_PROMPT_SUFFIX}"
   fi
 }
-RUBY_PROMPT="%1(v| %U%B%{${fg[magenta]}%}(%1v)%{${reset_color}%}%b%u|)"
 ## PROMPT
+RUBY_PROMPT="%1(v| %U%B%{${fg[magenta]}%}(%1v)%{${reset_color}%}%b%u|)"
+EXIT_PROMPT="%(?.%?.%{%B%}%K{red}%?%{%k%}%{%b%}"
 PROMPT="[%n@%m]%# "
-RPROMPT='[%~]$RUBY_PROMPT$(vcs_info_with_color)'
+RPROMPT='[%~]$RUBY_PROMPT$(vcs_info_with_color)$EXIT_PROMPT'
 
 # Additional completion definitions https://github.com/zsh-users/zsh-completions
 fpath=(~/.zsh.d/zsh-completions $fpath)
