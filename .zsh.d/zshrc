@@ -108,7 +108,7 @@ function vcs_info_with_color() {
     else
       STATUS=${VCS_NOT_GIT_PROMPT}
     fi
-    echo " ${VCS_PROMPT_PREFIX}${STATUS}${VCS_PROMPT_SUFFIX}"
+    echo "${VCS_PROMPT_PREFIX}${STATUS}${VCS_PROMPT_SUFFIX}"
   fi
 }
 ## PROMPT
