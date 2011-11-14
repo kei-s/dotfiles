@@ -4,7 +4,7 @@
 # for sudo
 typeset -xT SUDO_PATH sudo_path
 typeset -U sudo_path
-sudo_path=({,/usr/local,/usr}/sbin(n-/))
+sudo_path=({,/usr/local,/usr}/sbin(N-/))
 
 # lv for Pager
 if type lv > /dev/null 2>&1; then
