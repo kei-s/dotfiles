@@ -22,7 +22,10 @@ Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/JSON.vim '
+Bundle 'vim-scripts/JSON.vim'
+Bundle 'vim-scripts/csv.vim'
+Bundle 'kien/ctrlp.vim'
+
 
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
