@@ -192,7 +192,7 @@ esac
 alias ll=la
 alias -g L="| lv"
 alias -g G="| grep"
-alias -g W="| ws"
+alias -g W="| wc"
 alias -g C="| pbcopy"
 
 # title
