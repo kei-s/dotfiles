@@ -9,6 +9,7 @@ endif
 " for vundle
 set rtp+=~/.vim/vundle/
 call vundle#rc()
+Bundle 'vim-scripts/sudo.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'clones/vim-l9'
@@ -161,6 +162,9 @@ set wrapscan
 "タブの左側にカーソル表示
 set listchars=tab:>-,trail:-,nbsp:%,extends:<
 set list
+
+" filetype
+autocmd BufRead,BufNewFile {Guardfile,Capfile} set ft=ruby
 
 " Plugins
 " JSON.vim
