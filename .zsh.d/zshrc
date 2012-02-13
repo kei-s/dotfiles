@@ -1,5 +1,5 @@
 # .zsh.d/zshrc
-# https://github.com/clear-code/zsh.d/blob/master/zshenv
+# https://github.com/clear-code/zsh.d/blob/master/zshrc
 
 # emacs keybind in shell
 bindkey -e
@@ -209,6 +209,10 @@ update_title() {
   print -n -P "\e]2;"
   echo -n "(${command})"
   print -n -P " %n@%m:%~\a"
+
+  print -n -P "\e]1;"
+  echo -n "${command}"
+  print -n -P ":%~\a"
 }
 ## title for X
 if [ -n "$DISPLAY" ]; then
