@@ -14,10 +14,12 @@
   co = checkout
   pr = pull --rebase
   ds = diff --staged
+  dw = diff --word-diff
   lg = log --graph
   lp = log -p --stat
   lo = log --pretty=oneline
   st = status
   cp = cherry-pick
+  fo = fetch origin
 [push]
   default = tracking
