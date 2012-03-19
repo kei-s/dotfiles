@@ -26,6 +26,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/JSON.vim'
 Bundle 'vim-scripts/csv.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/syntastic'
 
 
 " Options  "{{{2
