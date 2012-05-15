@@ -214,11 +214,11 @@ nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir -buffer-name=files buffer f
 nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
 nnoremap <silent> [unite]o :<C-u>Unite outline<CR>
 " split
-au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
 " vsplit
-au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
 " close with <ESC><ESC>
 autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
