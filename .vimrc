@@ -7,6 +7,7 @@ if !exists('s:loaded_my_vimrc')
 endif
 
 " for vundle
+filetype off
 set rtp+=~/.vim/vundle/
 call vundle#rc()
 Bundle 'vim-scripts/sudo.vim'
