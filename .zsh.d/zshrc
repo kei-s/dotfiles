@@ -118,7 +118,8 @@ PROMPT="[%n@%m]%# "
 RPROMPT='[%~]$RUBY_PROMPT$(vcs_info_with_color)$EXIT_PROMPT'
 
 # Additional completion definitions https://github.com/zsh-users/zsh-completions
-fpath=(~/.zsh.d/zsh-completions $fpath)
+# Additional completion definitions for homebrew
+fpath=(~/.zsh.d/zsh-completions /usr/local/share/zsh/site-functions $fpath)
 # Auto Completion
 autoload -U compinit
 compinit -u
