@@ -36,6 +36,9 @@ cmap <C-p> <S-Tab>
 " Jump from selection in visual mode http://memo.officebrook.net/20090803.html#p01
 vmap <silent> <C-g> y<Esc><Esc>P
 
+" turn off highlighting
+nnoremap <silent> gh :nohlsearch<CR>
+
 " hint charanters
 set hintchars=HSADFJKLEWCMPG
 
@@ -67,9 +70,9 @@ set! browser.urlbar.maxRichResult=20
 hi! CompResult -a -moz-binding: url(chrome://liberator/content/bindings.xml#compitem-td);
 hi! CompDesc -a -moz-binding: url(chrome://liberator/content/bindings.xml#compitem-td);
 
-" Gmail/LDR/Fastladder/OpenFL/はてブでは新規タブをバックグラウンドで開く
-autocmd LocationChange (?!https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp/)) :set! browser.tabs.loadDivertedInBackground=false
-autocmd LocationChange https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp/) :set! browser.tabs.loadDivertedInBackground=true
+" Gmail/LDR/Fastladder/OpenFL/はてブ/Facebookでは新規タブをバックグラウンドで開く
+autocmd LocationChange (?!https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp|www\.facebook\.com/)) :set! browser.tabs.loadDivertedInBackground=false
+autocmd LocationChange https?://(mail\.google\.com\/(mail|a)\/|(reader\.livedoor\.com|fastladder\.com|0\.0\.0\.0\:3000)/reader/|b\.hatena\.ne\.jp|www\.facebook\.com/) :set! browser.tabs.loadDivertedInBackground=true
 
 " Add Mapping `C-c' copy or stop loading
 javascript <<EOF
