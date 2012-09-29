@@ -2,3 +2,4 @@
 .vim/bundle
 .vimperator/info
 .zsh.d/zshrc.local
+.zsh.d/zshenv.local

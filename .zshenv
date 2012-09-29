@@ -1,5 +1,6 @@
 # .zshenv
 source ~/.zsh.d/zshenv
+source ~/.zsh.d/zshenv.local
 
 USERNAME="kei"
 export USERNAME
