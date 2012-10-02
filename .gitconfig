@@ -18,7 +18,7 @@
   lg = log --graph
   lp = log -p --stat
   lo = log --pretty=oneline
-  st = status
+  st = status -sb
   cp = cherry-pick
   fo = fetch origin
 [push]
