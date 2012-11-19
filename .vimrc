@@ -28,6 +28,7 @@ Bundle 'vim-scripts/JSON.vim'
 Bundle 'vim-scripts/csv.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
+Bundle 'altercation/vim-colors-solarized'
 
 
 " Options  "{{{2
@@ -38,7 +39,10 @@ if (1 < &t_Co || has('gui')) && has('syntax')
   syntax enable
   if !exists('g:colors_name')  " Don't override colorscheme on reloading.
     if (&t_Co ==# 256)
-      colorscheme inkpot
+      set background=dark
+      let g:solarized_termtrans=1
+      let g:solarized_termcolors=256
+      colorscheme solarized
     endif
   endif
 endif
