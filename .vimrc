@@ -29,6 +29,7 @@ Bundle 'vim-scripts/csv.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 
 " Options  "{{{2
@@ -256,3 +257,8 @@ let g:surround_{char2nr('m')} = "module \1module\1 \r end"
 let g:surround_{char2nr('d')} = "def \1def\1\2args\r..*\r(&)\2 \r end"
 let g:surround_{char2nr('p')} = "\1method\1 do \2args\r..*\r|&| \2\r end"
 let g:surround_{char2nr('P')} = "\1method\1 {\2args\r..*\r|&|\2 \r }"
+
+" vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
