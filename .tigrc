@@ -1,1 +1,8 @@
+# Ignore git gc keybind
 bind generic G move-last-line
+
+# open commit at github
+# from http://blog.kyanny.me/entry/2012/07/22/033134
+bind main o !@hub browse -- commit/%(commit)
+bind diff o !@hub browse -- commit/%(commit)
+bind log o !@hub browse -- commit/%(commit)
