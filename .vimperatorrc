@@ -41,6 +41,7 @@ nnoremap <silent> gh :nohlsearch<CR>
 
 " hint charanters
 set hintchars=HSADFJKLEWCMPG
+colorscheme hint
 
 " :[tab]open の補完対象と順番
 set complete=sl
