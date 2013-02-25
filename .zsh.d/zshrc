@@ -40,14 +40,13 @@ autoload -Uz colors
 colors
 ## for VCS info
 autoload -Uz add-zsh-hook
-# for rvm
-function _precmd_rvm() {
+# for rbenv
+function _precmd_rbenv() {
   psvar=()
-  [[ -s ~/.rvm/bin/rvm-prompt ]] &&
-  [[ "$(~/.rvm/bin/rvm-prompt v)" != "1.9.2" ]] &&
-  psvar[1]="$(~/.rvm/bin/rvm-prompt v)"
+  [[ -s ~/.rbenv/version ]] &&
+  psvar[1]="$(rbenv version-name)"
 }
-add-zsh-hook precmd _precmd_rvm
+add-zsh-hook precmd _precmd_rbenv
 # for vcs_info
 function _precmd_vcs_info() {
   LANG=en_US.UTF-8 vcs_info

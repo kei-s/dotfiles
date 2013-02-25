@@ -21,3 +21,10 @@ source ~/.zsh.d/zshrc.local
 #function history-all { history -E 1 }
 
 #setopt auto_list
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
