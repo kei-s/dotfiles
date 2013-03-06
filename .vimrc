@@ -31,6 +31,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'airblade/vim-gitgutter'
 
 
 " Options  "{{{2
