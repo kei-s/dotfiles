@@ -32,7 +32,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'airblade/vim-gitgutter'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
 
 
 " Options  "{{{2
@@ -270,17 +271,4 @@ if (&t_Co ==# 256)
 endif
 
 " Dash.app
-" http://qiita.com/items/292e99a521a9653e75fb
-function! s:dash(...)
-  let ft = &filetype
-  if &filetype == 'python'
-    let ft = ft.'2'
-  endif
-  if exists('b:rails_root')
-    let ft = 'rails'
-  endif
-  let ft = ft.':'
-  let word = len(a:000) == 0 ? input('Dash search: ', ft.expand('<cword>')) : ft.join(a:000, ' ')
-  call system(printf("open dash://'%s'", word))
-endfunction
-command! -nargs=* Dash call <SID>dash(<f-args>)
+nmap <silent> <leader>d <Plug>DashSearch
