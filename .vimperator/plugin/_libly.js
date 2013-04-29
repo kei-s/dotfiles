@@ -1,20 +1,22 @@
 /*** BEGIN LICENSE BLOCK {{{
     Copyright (c) 2008 suVene<suvene@zeromemory.info>
+    Copyright (c) 2008-2011 anekos<anekos@snca.net>
 
     distributable under the terms of an MIT-style license.
     http://www.opensource.jp/licenses/mit-license.html
 }}}  END LICENSE BLOCK ***/
 // PLUGIN_INFO//{{{
-var PLUGIN_INFO =
+/*
+var PLUGIN_INFO = xml`
 <VimperatorPlugin>
     <name>libly(filename _libly.js)</name>
     <description>Vimperator plugins library?</description>
     <description lang="ja">適当なライブラリっぽいものたち。</description>
     <author mail="suvene@zeromemory.info" homepage="http://zeromemory.sblo.jp/">suVene</author>
+    <author mail="anekos@snca.net" homepage="http://snca.net/">anekos</author>
     <license>MIT</license>
-    <version>0.1.34</version>
+    <version>0.1.38</version>
     <minVersion>2.3pre</minVersion>
-    <maxVersion>3.0</maxVersion>
     <updateURL>https://github.com/vimpr/vimperator-plugins/raw/master/_libly.js</updateURL>
     <detail><![CDATA[
 == Objects ==
@@ -129,7 +131,7 @@ Request(url, headers, options):
         以下の値はデフォルトで設定される（'Content-type'はPOST時のみ）
         >||
         {
-            'Accept': 'text/javascript, application/javascript, text/html, application/xhtml+xml, application/xml, text/xml, */*;q=0.1',
+            'Accept': 'text/javascript, application/javascript, text/html, application/xhtml+xml, application/xml, text/xml, * /*;q=0.1',
             'Content-type': 'application/x-www-form-urlencoded; charset=' + options.encodingの値
         }
         ||<
@@ -149,11 +151,11 @@ Request(url, headers, options):
 addEventListener(name, func):
     イベントリスナを登録する。
     name:
-        'onSuccess':
+        'success':
             成功時
-        'onFailure':
+        'failure':
             失敗を表すステータスコードが返ってきた時
-        'onException':
+        'exception':
             例外発生時
     func:
         イベント発火時の処理
@@ -188,12 +190,18 @@ clearCache:
   wedata 読込み成功したら、強制的にキャッシュと置き換えるの作って！
 
     ]]></detail>
-</VimperatorPlugin>;
+</VimperatorPlugin>`;
+*/
 //}}}
 //if (!liberator.plugins.libly) {
 
 liberator.plugins.libly = {};
 var libly = liberator.plugins.libly;
+
+// XXX for backward compatibillity
+function fixEventName(name) {
+    return name.replace(/^on/, '').toLowerCase();
+}
 
 libly.$U = {//{{{
     // Logger {{{
@@ -239,8 +247,8 @@ libly.$U = {//{{{
           let pluginPath;
           Error('hoge').stack.split(/\n/).some(
             function (s)
-              let (m = s.match(/^\(\)@chrome:\/\/liberator\/content\/liberator\.js -> (.+):\d+$/))
-                (m && (pluginPath = m[1]))
+              let (m = s.match(/-> liberator:\/\/template\/chrome:\/\/liberator\/content\/liberator\.js -> (.+):\d+$/))
+                (m && (pluginPath = m[1].replace(/\?.*$/, '')))
           );
           return pluginPath;
         }
@@ -275,7 +283,7 @@ libly.$U = {//{{{
                 let self = this, args = arguments;
                 return func.call(self, function (_args) original.apply(self, _args || args), args);
             };
-            libly.$U.extend(current, {original: original.original || original, restore: restore});
+            libly.$U.extend(current, {original: original && original.original || original, restore: restore});
             return libly.$U.extend({
                 original: original,
                 current: current,
@@ -457,21 +465,7 @@ libly.$U = {//{{{
     },
     xmlToDom: function xmlToDom(node, doc, nodes)
     {
-        XML.prettyPrinting = false;
-        switch (node.nodeKind())
-        {
-            case "text":
-                return doc.createTextNode(node);
-            case "element":
-                let domnode = doc.createElementNS(node.namespace(), node.localName());
-                for each (let attr in node.@*)
-                    domnode.setAttributeNS(attr.name() == "highlight" ? NS.uri : attr.namespace(), attr.name(), String(attr));
-                for each (let child in node.*)
-                    domnode.appendChild(arguments.callee(child, doc, nodes));
-                if (nodes && node.@key)
-                    nodes[node.@key] = domnode;
-                return domnode;
-        }
+        return util.xmlToDom(node, doc, nodes);
     },
     getElementPosition: function(elem) {
         var offsetTrail = elem;
@@ -516,14 +510,16 @@ libly.Request.prototype = {
         this.observers = {};
     },
     addEventListener: function(name, func) {
+        name = fixEventName(name);
         try {
             if (typeof this.observers[name] == 'undefined') this.observers[name] = [];
             this.observers[name].push(func);
         } catch (e) {
-            if (!this.fireEvent('onException', new libly.Response(this), e)) throw e;
+            if (!this.fireEvent('exception', new libly.Response(this), e)) throw e;
         }
     },
     fireEvent: function(name, args, asynchronous) {
+        name = fixEventName(name);
         if (!(this.observers[name] instanceof Array)) return false;
         this.observers[name].forEach(function(event) {
             if (asynchronous) {
@@ -544,20 +540,29 @@ libly.Request.prototype = {
             this.transport = new XMLHttpRequest();
             this.transport.open(method, this.url, this.options.asynchronous, this.options.username, this.options.password);
 
-            this.transport.onreadystatechange = libly.$U.bind(this, this._onStateChange);
+            var stateChangeException;
+            this.transport.onreadystatechange = libly.$U.bind(this, function () {
+                try {
+                    this._onStateChange();
+                } catch (e) {
+                    stateChangeException = e;
+                }
+            });
             this.setRequestHeaders();
-            this.transport.overrideMimeType('text/html; charset=' + this.options.encoding);
+            this.transport.overrideMimeType(this.options.mimetype || 'text/html; charset=' + this.options.encoding);
 
             this.body = this.method == 'POST' ? this.options.postBody : null;
 
             this.transport.send(this.body);
+
+            if (!this.options.asynchronous && stateChangeException) throw stateChangeException;
 
             // Force Firefox to handle ready state 4 for synchronous requests
             if (!this.options.asynchronous && this.transport.overrideMimeType)
                 this._onStateChange();
 
         } catch (e) {
-            if (!this.fireEvent('onException', new libly.Response(this), e)) throw e;
+            if (!this.fireEvent('exception', new libly.Response(this), e)) throw e;
         }
     },
     _onStateChange: function() {
@@ -582,9 +587,9 @@ libly.Request.prototype = {
             libly.Request.requestCount--;
             try {
                 this._complete = true;
-                this.fireEvent('on' + (this.isSuccess() ? 'Success' : 'Failure'), res, this.options.asynchronous);
+                this.fireEvent(this.isSuccess() ? 'success' : 'failure', res, this.options.asynchronous);
             } catch (e) {
-                if (!this.fireEvent('onException', res, e)) throw e;
+                if (!this.fireEvent('exception', res, e)) throw e;
             }
         }
     },
@@ -632,6 +637,7 @@ libly.Response.prototype = {
             this.status = this.getStatus();
             this.statusText = this.getStatusText();
             this.responseText = (this.transport.responseText == null) ? '' : this.transport.responseText;
+            this.responseXML = this.transport.responseXML;
         }
 
         this.doc = null;
@@ -672,8 +678,8 @@ libly.Wedata.prototype = {
     getItems: function(expire, itemCallback, finalCallback) {
 
         var logger = this.logger;
-        var STORE_KEY = 'plugins-libly-wedata-' + this.dbname + '-items';
-        var store = storage.newMap(STORE_KEY, true);
+        var STORE_KEY = 'plugins-libly-wedata-' + encodeURIComponent(this.dbname) + '-items';
+        var store = storage.newMap(STORE_KEY, {store: true});
         var cache = store && store.get('data');
 
         if (store && cache && new Date(store.get('expire')) > new Date()) {
@@ -699,8 +705,8 @@ libly.Wedata.prototype = {
             }
         }
 
-        var req = new libly.Request(this.HOST_NAME + 'databases/' + this.dbname + '/items.json');
-        req.addEventListener('onSuccess', libly.$U.bind(this, function(res) {
+        var req = new libly.Request(this.HOST_NAME + 'databases/' + encodeURIComponent(this.dbname) + '/items.json');
+        req.addEventListener('success', libly.$U.bind(this, function(res) {
             var text = res.responseText;
             if (!text) {
                 errDispatcher('response is null.', cache);
@@ -719,8 +725,8 @@ libly.Wedata.prototype = {
             if (typeof finalCallback == 'function')
                 finalCallback(true, json);
         }));
-        req.addEventListener('onFailure', function() errDispatcher('onFailure', cache));
-        req.addEventListener('onException', function() errDispatcher('onException', cache));
+        req.addEventListener('failure', function() errDispatcher('onFailure', cache));
+        req.addEventListener('exception', function() errDispatcher('onException', cache));
         req.get();
     }
 };
