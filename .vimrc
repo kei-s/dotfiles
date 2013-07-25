@@ -234,21 +234,21 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vspli
 " close with <ESC><ESC>
 autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-call unite#set_substitute_pattern('file', '\$\w\+', '\=eval(submatch(0))', 200)
-call unite#set_substitute_pattern('file', '[^~.]\zs/', '*/*', 20)
-call unite#set_substitute_pattern('file', '/\ze[^*]', '/*', 10)
-call unite#set_substitute_pattern('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/*"', 2)
-call unite#set_substitute_pattern('file', '^@', '\=getcwd()."/*"', 1)
-call unite#set_substitute_pattern('file', '^\\', '~/*')
-call unite#set_substitute_pattern('file', '^;v', '~/.vim/*')
-call unite#set_substitute_pattern('file', '^;r', '\=$VIMRUNTIME."/*"')
+call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
+call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
+call unite#custom#substitute('file', '/\ze[^*]', '/*', 10)
+call unite#custom#substitute('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/*"', 2)
+call unite#custom#substitute('file', '^@', '\=getcwd()."/*"', 1)
+call unite#custom#substitute('file', '^\\', '~/*')
+call unite#custom#substitute('file', '^;v', '~/.vim/*')
+call unite#custom#substitute('file', '^;r', '\=$VIMRUNTIME."/*"')
 if has('win32') || has('win64')
-  call unite#set_substitute_pattern('file', '^;p', 'C:/Program Files/*')
+  call unite#custom#substitute('file', '^;p', 'C:/Program Files/*')
 endif
-call unite#set_substitute_pattern('file', '\*\*\+', '*', -1)
-call unite#set_substitute_pattern('file', '^\~', escape($HOME, '\'), -2)
-call unite#set_substitute_pattern('file', '\\\@<! ', '\\ ', -20)
-call unite#set_substitute_pattern('file', '\\ \@!', '/', -30)
+call unite#custom#substitute('file', '\*\*\+', '*', -1)
+call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
+call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
+call unite#custom#substitute('file', '\\ \@!', '/', -30)
 
 " surround.vim
 " Ruby http://d.hatena.ne.jp/ursm/20080402/1207150539
