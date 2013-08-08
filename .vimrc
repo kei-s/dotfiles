@@ -277,4 +277,3 @@ nmap <silent> <leader>d <Plug>DashSearch
 
 " syntastic
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_ruby_rubocop_exe = 'LC_ALL=en_US.UTF-8 rubocop'
