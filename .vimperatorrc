@@ -140,7 +140,7 @@ liberator.globalVariables.copy_templates = [
       return [data.name, '"'+data.text+'"', data.url].join(' ');
     }
   },
-  { label: 'markdown',         value: '[%TITLE%](%URL%)' }
+  { label: 'markdown',         value: '[%TITLE%](%URL%)', map: ',m'}
   ];
 EOF
 
