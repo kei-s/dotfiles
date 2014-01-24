@@ -1,7 +1,7 @@
 "3.0
 
 " for nocompatible extensions
-set! extensions.checkCompatibility.6.0=false
+set! extensions.checkCompatibility.26.0=false
 
 " guioptions
 set toolbars+=addons,bookmarks,nonavigation
