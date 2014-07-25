@@ -33,6 +33,8 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+Bundle 'mustache/vim-mustache-handlebars'
+Bundle 'slim-template/vim-slim'
 
 
 " Options  "{{{2
