@@ -4,7 +4,7 @@
 set! extensions.checkCompatibility.26.0=false
 
 " guioptions
-set toolbars+=addons,bookmarks,nonavigation
+set toolbars=none,tabs
 
 " move
 noremap j 3j
@@ -115,8 +115,8 @@ lazy fmaps -u='www\.google\.[^/]+/reader' -events=vkeypress j J k K <Space> <S-S
 "lazy fmaps -u='www\.google\.[^/]+/reader' -events=vkeyup z
 lazy fmaps -u='www\.google\.com/calendar/' -events=vkeydown t a d w m x c e <Del> / + q s ?
 lazy fmaps -u='friendfeed\.com/' -events=keydown p P q / gh gd gm gb
-lazy fmaps -urls='^https://twitter\.com/#' f r t m n <Enter> l ? j k <Space> / . gh gc ga gr gd gp gf gm gs gu
-lazy fmaps -u='^http://www\.tumblr\.com/' -events=vkeydown j k l
+lazy fmaps -urls='^https://twitter\.com/' f r t m n <Enter> l ? j k <Space> / . gh gc ga gr gd gp gf gm gs gu
+lazy fmaps -u='^https://www\.tumblr\.com/' -events=vkeydown j k l
 lazy fmaps -u='^https://www\.facebook\.com/' -events=vkeydown j k l c
 lazy fmaps -u='^https://plus\.google\.com/' j k n p
 
