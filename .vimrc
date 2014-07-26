@@ -8,8 +8,9 @@ endif
 
 " for vundle
 filetype off
-set rtp+=~/.vim/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 Bundle 'vim-scripts/sudo.vim'
 Bundle 'Shougo/neocomplete'
 Bundle 'scrooloose/nerdcommenter'
@@ -35,7 +36,7 @@ Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'slim-template/vim-slim'
-
+call vundle#end()
 
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
