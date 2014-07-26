@@ -20,8 +20,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-bundler'
 Bundle 'digitaltoad/vim-jade'
-Bundle 'Shougo/unite.vim'
-Bundle 'h1mesuke/unite-outline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'kchmck/vim-coffee-script'
@@ -200,40 +198,6 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" unite.vim
-let g:unite_enable_start_insert=1
-nnoremap [unite] <Nop>
-nmap <Space>u [unite]
-nnoremap <silent> [unite]c :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]b :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file<CR>
-nnoremap <silent> [unite]o :<C-u>Unite -vertical -winwidth=30 -no-quit -no-start-insert outline<CR>
-" split
-au FileType unite nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-au FileType unite nnoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-au FileType unite inoremap <silent> <buffer> <expr> <C-s> unite#do_action('split')
-" vsplit
-au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-" close with <ESC><ESC>
-autocmd FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
-autocmd FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
-call unite#custom#substitute('file', '\$\w\+', '\=eval(submatch(0))', 200)
-call unite#custom#substitute('file', '[^~.]\zs/', '*/*', 20)
-call unite#custom#substitute('file', '/\ze[^*]', '/*', 10)
-call unite#custom#substitute('file', '^@@', '\=fnamemodify(expand("#"), ":p:h")."/*"', 2)
-call unite#custom#substitute('file', '^@', '\=getcwd()."/*"', 1)
-call unite#custom#substitute('file', '^\\', '~/*')
-call unite#custom#substitute('file', '^;v', '~/.vim/*')
-call unite#custom#substitute('file', '^;r', '\=$VIMRUNTIME."/*"')
-if has('win32') || has('win64')
-  call unite#custom#substitute('file', '^;p', 'C:/Program Files/*')
-endif
-call unite#custom#substitute('file', '\*\*\+', '*', -1)
-call unite#custom#substitute('file', '^\~', escape($HOME, '\'), -2)
-call unite#custom#substitute('file', '\\\@<! ', '\\ ', -20)
-call unite#custom#substitute('file', '\\ \@!', '/', -30)
 
 " surround.vim
 " Ruby http://d.hatena.ne.jp/ursm/20080402/1207150539
