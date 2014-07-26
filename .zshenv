@@ -1,6 +1,8 @@
 # .zshenv
 source ~/.zsh.d/zshenv
-source ~/.zsh.d/zshenv.local
+if [ -e ~/.zsh.d/zshenv.local ]; then
+  source ~/.zsh.d/zshenv.local
+fi
 
 USERNAME="kei"
 export USERNAME

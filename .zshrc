@@ -1,7 +1,9 @@
 # .zshrc
 
 source ~/.zsh.d/zshrc
-source ~/.zsh.d/zshrc.local
+if [ -e ~/.zsh.d/zshrc.local ]; then
+  source ~/.zsh.d/zshrc.local
+fi
 
 ## below are old settings
 #case "${OSTYPE}" in
