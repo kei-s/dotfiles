@@ -10,6 +10,7 @@ install zsh-completions
 # sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
 # chsh -s /usr/local/bin/zsh
 
+install coreutils
 install git
 install lv
 install vim --with-lua
