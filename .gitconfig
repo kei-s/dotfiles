@@ -24,3 +24,5 @@
   mergelog = "!$SHELL -c 'git log --grep=\"Merge pull request\" origin/master | egrep -v \"^(commit|Merge:|Author:|Date:| +Merge pull)\" | egrep \"[^ ]\" | head -10 | sed \"s/\\[fi.*$//\" | sed \"s/^ */- /\"' __dummy__"
 [push]
   default = tracking
+[ghq]
+  root = ~/src
