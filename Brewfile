@@ -36,3 +36,5 @@ cask install skype
 cask install mailplane
 cask install flash
 cask install kobito
+cask install dropbox
+cask install trailer
