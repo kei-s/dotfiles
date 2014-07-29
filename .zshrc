@@ -1,9 +1,11 @@
 # .zshrc
 
 source ~/.zsh.d/zshrc
-if [ -e ~/.zsh.d/zshrc.local ]; then
-  source ~/.zsh.d/zshrc.local
-fi
+case ${OSTYPE} in
+  darwin*)
+    source ~/.zsh.d/zshrc.osx
+    ;;
+esac
 
 ## below are old settings
 #case "${OSTYPE}" in
@@ -23,9 +25,6 @@ fi
 #function history-all { history -E 1 }
 
 #setopt auto_list
-
-# homebrew
-export PATH="/usr/local/bin:$PATH"
 
 # rbenv
 export RBENV_ROOT=/usr/local/var/rbenv
