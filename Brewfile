@@ -12,7 +12,9 @@ install zsh-completions
 
 install coreutils
 install git
+install tig
 install lv
+install wget
 install mysql
 install vim --with-lua
 install rbenv
