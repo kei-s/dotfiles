@@ -45,3 +45,5 @@ cask install dropbox
 cask install trailer
 cask install limechat
 cask install sequel-pro
+cask install appcleaner
+cask install heroku-toolbelt
