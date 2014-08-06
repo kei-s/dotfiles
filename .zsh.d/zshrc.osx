@@ -4,4 +4,5 @@ export PATH="/usr/local/bin:$PATH"
 # terminal-notifier
 # http://qiita.com/kei_s/items/96ee6929013f587b5878
 export SYS_NOTIFIER="/usr/local/var/rbenv/shims/terminal-notifier"
+export ATOM_PATH="/opt/homebrew-cask/Caskroom/atom/latest/Atom.app"
 source ~/.zsh.d/zsh-notify/notify.plugin.zsh
