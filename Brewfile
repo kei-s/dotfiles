@@ -13,6 +13,7 @@ install zsh-completions
 install coreutils
 install git
 install tig
+install curl --with-rtmp
 install lv
 install wget
 install mysql
