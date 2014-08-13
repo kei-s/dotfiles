@@ -50,3 +50,7 @@ cask install sequel-pro
 cask install appcleaner
 cask install heroku-toolbelt
 cask install atom
+cask install anvil
+cask install cyberduck
+cask install silverlight
+cask install vlc
