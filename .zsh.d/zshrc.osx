@@ -6,3 +6,6 @@ export PATH="/usr/local/bin:$PATH"
 export SYS_NOTIFIER="/usr/local/var/rbenv/shims/terminal-notifier"
 export ATOM_PATH="/opt/homebrew-cask/Caskroom/atom/latest/Atom.app"
 source ~/.zsh.d/zsh-notify/notify.plugin.zsh
+
+# added by travis gem
+[ -f /Users/kei/.travis/travis.sh ] && source /Users/kei/.travis/travis.sh
