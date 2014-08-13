@@ -17,6 +17,7 @@ install curl --with-rtmp
 install lv
 install wget
 install mysql
+install postgresql
 install vim --with-lua
 install rbenv
 install ruby-build
