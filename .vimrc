@@ -36,6 +36,13 @@ Bundle 'mustache/vim-mustache-handlebars'
 Bundle 'slim-template/vim-slim'
 call vundle#end()
 
+if $GOROOT != ''
+  set rtp+=$GOROOT/misc/vim
+endif
+if $GOPATH != ''
+  set rtp+=${GOPATH}/src/github.com/nsf/gocode/vim
+endif
+
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
   if &term ==# 'xterm' || &term ==# 'screen-bce'
