@@ -27,6 +27,9 @@ install nodejs
 install go
 install peco/peco/peco
 install mercurial
+install elasticsearch
+install hub
+install phantomjs
 
 cask install alfred
 # After install alfred, run below
@@ -54,3 +57,9 @@ cask install anvil
 cask install cyberduck
 cask install silverlight
 cask install vlc
+cask install java
+cask install vagrant
+cask install virtualbox
+cask install rescuetime
+cask install libreoffice
+cask install blink1control
