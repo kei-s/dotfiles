@@ -119,6 +119,8 @@ lazy fmaps -urls='^https://twitter\.com/' f r t m n <Enter> l ? j k <Space> / . 
 lazy fmaps -u='^https://www\.tumblr\.com/' -events=vkeydown j k l
 lazy fmaps -u='^https://www\.facebook\.com/' -events=vkeydown j k l c
 lazy fmaps -u='^https://plus\.google\.com/' j k n p
+lazy fmaps -u='^https://github\.com/' -events=vkeydown s gn gd gc gi gp gw
+lazy fmaps -u='^https://github\.com/' ?
 
 " for copy.js
 javascript <<EOF
