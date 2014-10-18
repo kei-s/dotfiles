@@ -182,7 +182,12 @@ set listchars=tab:>-,trail:-,nbsp:%,extends:<
 set list
 
 " filetype
+" ruby
 autocmd BufRead,BufNewFile {Guardfile,Capfile} set ft=ruby
+" go http://qiita.com/hnakamur/items/f39fde28bcfe4beaaaba
+au FileType go setlocal sw=4 ts=4 sts=4 noet
+au FileType go setlocal makeprg=go\ build\ ./... errorformat=%f:%l:\ %m
+au BufWritePre *.go Fmt
 
 " Plugins
 " JSON.vim
