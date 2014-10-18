@@ -31,6 +31,8 @@ brew install mercurial
 brew install elasticsearch
 brew install hub
 brew install phantomjs
+brew install tree
+brew install nkf
 
 brew cask install alfred
 # After install alfred, run below
