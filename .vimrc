@@ -41,6 +41,7 @@ if $GOROOT != ''
 endif
 if $GOPATH != ''
   set rtp+=${GOPATH}/src/github.com/nsf/gocode/vim
+  set rtp+=${GOPATH}/src/github.com/golang/lint/misc/vim
 endif
 
 " Options  "{{{2
@@ -238,3 +239,4 @@ nmap <silent> <leader>d <Plug>DashSearch
 
 " syntastic
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_go_checkers = ['go', 'golint']
