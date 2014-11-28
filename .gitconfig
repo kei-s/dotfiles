@@ -21,7 +21,7 @@
   st = status -sb
   cp = cherry-pick
   fo = fetch origin
-  mergelog = "!$SHELL -c 'git log --grep=\"Merge pull request\" origin/master | egrep -v \"^(commit|Merge:|Author:|Date:| +Merge pull)\" | egrep \"[^ ]\" | head -10 | sed \"s/\\[fi.*$//\" | sed \"s/^ */- /\"' __dummy__"
+  mergelog = "!$SHELL -c 'git --no-pager log --grep=\"Merge pull request\" origin/master | grep -v -E \"^(commit|Merge:|Author:|Date:| +Merge pull)\" | grep \"[^ ]\" | head -10 | sed \"s/\\[fi.*$//\" | sed \"s/^ */- /\"' __dummy__"
 [push]
   default = tracking
 [ghq]
