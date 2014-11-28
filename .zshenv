@@ -9,6 +9,7 @@ export USERNAME
 export NODE_PATH=/usr/local/lib/node_modules
 export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/.rbenv/bin:$PATH"
 
 export LC_COLLATE=C
 export LC_CTYPE=ja_JP.UTF-8

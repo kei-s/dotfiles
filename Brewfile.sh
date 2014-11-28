@@ -20,8 +20,6 @@ brew install wget
 brew install mysql
 brew install postgresql
 brew install vim --with-lua
-brew install rbenv
-brew install ruby-build
 brew install imagemagick
 brew install qt
 brew install nodejs

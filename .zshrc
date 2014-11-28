@@ -27,7 +27,6 @@ esac
 #setopt auto_list
 
 # rbenv
-export RBENV_ROOT=/usr/local/var/rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 ### Added by the Heroku Toolbelt
