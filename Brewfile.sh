@@ -12,6 +12,7 @@ brew install zsh-completions
 # chsh -s /usr/local/bin/zsh
 
 brew install coreutils
+brew install grep
 brew install git
 brew install tig
 brew install curl --with-rtmp
