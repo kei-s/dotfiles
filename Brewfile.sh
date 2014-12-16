@@ -33,6 +33,7 @@ brew install phantomjs
 brew install tree
 brew install nkf
 brew install jq
+brew install terminal-notifier
 
 brew cask install alfred
 # After install alfred, run below
