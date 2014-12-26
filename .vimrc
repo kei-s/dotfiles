@@ -120,6 +120,8 @@ nnoremap ZZ  <Nop>
 nnoremap ZQ  <Nop>
 " turn off highlighting
 nnoremap <silent> gh :nohlsearch<CR>
+" Yank until the end
+nnoremap Y y$
 
 " Now we set some defaults for the editor
 set scrolloff=5   " Scrool offset
