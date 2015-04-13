@@ -36,7 +36,6 @@ fi
 if grep --help 2>&1 | grep -q -- --color; then
   GREP_OPTIONS="--color=auto $GREP_OPTIONS"
 fi
-GREP_OPTIONS="--directories=recurse $GREP_OPTIONS"
 
 # vim for EDITOR
 export EDITOR="vim"
