@@ -158,6 +158,7 @@ set shiftwidth=2
 " コマンドライン補間をシェルっぽく
 set wildmode=list:longest
 
+autocmd QuickFixCmdPost *grep* cwindow
 
 " Suffixes that get lower priority when doing tab completion for filenames.
 " These are files we are not likely to want to edit or read.
