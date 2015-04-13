@@ -6,17 +6,9 @@ typeset -xT SUDO_PATH sudo_path
 typeset -U sudo_path
 sudo_path=({,/usr/local,/usr}/sbin(N-/))
 
-# lv for Pager
-if type lv > /dev/null 2>&1; then
-  export PAGER="lv"
-else
-  export PAGER="less"
-fi
-if [ "$PAGER" = "lv" ]; then
-  export LV="-c -l"
-else
-  alias lv="$PAGER"
-fi
+# less
+export LESS='--RAW-CONTROL-CHARS'
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh %s'
 
 # grep
 if type ggrep > /dev/null 2>&1; then

@@ -190,7 +190,7 @@ case $(uname) in
     ;;
 esac
 alias ll=la
-alias -g L="| lv"
+alias -g L="| less"
 alias -g G="| grep"
 alias -g W="| wc"
 alias -g C="| pbcopy"
