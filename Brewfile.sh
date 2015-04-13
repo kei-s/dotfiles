@@ -25,7 +25,7 @@ brew install imagemagick
 brew install qt
 brew install nodejs
 brew install go
-brew install peco/peco/peco
+brew install peco
 brew install mercurial
 brew install elasticsearch
 brew install hub
@@ -34,12 +34,9 @@ brew install tree
 brew install nkf
 brew install jq
 brew install terminal-notifier
+brew install source-highlight
 
 brew cask install alfred
-# After install alfred, run below
-#
-# brew cask alfred link
-
 brew cask install google-chrome
 brew cask install google-japanese-ime
 brew cask install iterm2
