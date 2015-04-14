@@ -50,6 +50,3 @@ for email_file in ${email_files}; do
   export EMAIL=$(cat "$email_file")
   break
 done
-
-# GOROOT
-export GOROOT=/usr/local/opt/go/libexec
