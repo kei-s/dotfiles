@@ -268,10 +268,8 @@ function exists { which $1 &> /dev/null }
 
 if exists peco; then
     function peco_select_history() {
-        local tac
         local ignore="push.* -f\|rm.* -rf"
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | grep -v "$ignore" | eval $tac | peco --prompt "HISTORY>" --query "$LBUFFER")
+        BUFFER=$(history -n -r 1 | awk '!a[$0]++' | grep -v "$ignore" | peco --prompt "HISTORY>" --query "$LBUFFER")
         CURSOR=$#BUFFER         # move cursor
         zle -R -c               # refresh
     }
