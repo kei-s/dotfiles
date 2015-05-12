@@ -53,6 +53,7 @@ function _precmd_vcs_info() {
 }
 add-zsh-hook precmd _precmd_vcs_info
 autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg
 zstyle ':vcs_info:*' formats       "%b"    "%s"
 zstyle ':vcs_info:*' actionformats "%b|%a" "%s"
 function vcs_info_for_git() {
