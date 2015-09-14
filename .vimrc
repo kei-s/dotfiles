@@ -35,6 +35,7 @@ Plugin 'rizzatti/dash.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'slim-template/vim-slim'
 Plugin 'fatih/vim-go'
+Plugin 'elixir-lang/vim-elixir'
 call vundle#end()
 
 " Options  "{{{2
@@ -177,6 +178,8 @@ set wrapscan
 "タブの左側にカーソル表示
 set listchars=tab:>-,trail:-,nbsp:%,extends:<
 set list
+
+set completeopt=menuone
 
 " filetype
 " ruby
