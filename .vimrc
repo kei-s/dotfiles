@@ -34,15 +34,8 @@ Plugin 'rizzatti/funcoo.vim'
 Plugin 'rizzatti/dash.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'slim-template/vim-slim'
+Plugin 'fatih/vim-go'
 call vundle#end()
-
-if $GOROOT != ''
-  set rtp+=$GOROOT/misc/vim
-endif
-if $GOPATH != ''
-  set rtp+=${GOPATH}/src/github.com/nsf/gocode/vim
-  set rtp+=${GOPATH}/src/github.com/golang/lint/misc/vim
-endif
 
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
@@ -188,10 +181,6 @@ set list
 " filetype
 " ruby
 autocmd BufRead,BufNewFile {Guardfile,Capfile} set ft=ruby
-" go http://qiita.com/hnakamur/items/f39fde28bcfe4beaaaba
-au FileType go setlocal sw=4 ts=4 sts=4 noet
-au FileType go setlocal makeprg=go\ build\ ./... errorformat=%f:%l:\ %m
-au BufWritePre *.go Fmt
 
 " Plugins
 " JSON.vim
@@ -243,3 +232,8 @@ nmap <silent> <leader>d <Plug>DashSearch
 " syntastic
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_go_checkers = ['go', 'golint']
+
+" vim-go
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>e <Plug>(go-rename)
