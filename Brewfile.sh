@@ -20,6 +20,7 @@ brew install lv
 brew install wget
 brew install mysql
 brew install postgresql
+brew install redis
 brew install vim --with-lua
 brew install imagemagick
 brew install qt
@@ -35,6 +36,7 @@ brew install nkf
 brew install jq
 brew install terminal-notifier
 brew install source-highlight
+brew install ansible
 
 brew cask install alfred
 brew cask install google-chrome
