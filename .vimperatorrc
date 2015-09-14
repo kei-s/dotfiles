@@ -121,7 +121,7 @@ lazy fmaps -u='^https://www\.facebook\.com/' -events=vkeydown j k l c
 lazy fmaps -u='^https://plus\.google\.com/' j k n p
 lazy fmaps -u='^https://github\.com/' -events=vkeydown s gn gd gc gi gp gw
 lazy fmaps -u='^https://github\.com/' ?
-lazy fmaps -u='^https://www\.youtube\.com/watch.*' -events=vkeydown k j l 0 1 2 3 4 5 6 7 8 9 f m
+lazy fmaps -u='^https://www\.youtube\.com/watch.*' -events=vkeydown k j l 0 1 2 3 4 5 6 7 8 9 f m > <
 
 " for copy.js
 javascript <<EOF
