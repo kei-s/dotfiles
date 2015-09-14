@@ -143,6 +143,10 @@ liberator.globalVariables.copy_templates = [
       return [data.name, '"'+data.text+'"', data.url].join(' ');
     }
   },
+  { label: 'branch', value: 'copy branch name from GitHub Pull Request', custom: function(){
+      return content.document.getElementById('partial-discussion-header').getElementsByClassName('css-truncate-target')[2].textContent;
+    }
+  },
   { label: 'markdown',         value: '[%TITLE%](%URL%)', map: ',m'}
   ];
 EOF
