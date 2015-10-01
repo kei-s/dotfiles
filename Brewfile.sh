@@ -37,6 +37,7 @@ brew install jq
 brew install terminal-notifier
 brew install source-highlight
 brew install ansible
+brew install shellcheck
 
 #brew cask install alfred
 #brew cask install google-chrome
