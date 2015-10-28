@@ -24,6 +24,8 @@
   mergelog = "!$SHELL -c 'git --no-pager log --grep=\"Merge pull request\" origin/master | grep -v -E \"^(commit|Merge:|Author:|Date:| +Merge pull)\" | grep \"[^ ]\" | head -10 | sed \"s/\\[fi.*$//\" | sed \"s/^ */- /\"' __dummy__"
 [push]
   default = tracking
+[rebase]
+  autosquash = true
 [ghq]
   root = ~/src
 [filter "lfs"]
