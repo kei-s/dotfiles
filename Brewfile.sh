@@ -41,6 +41,10 @@ brew install terminal-notifier
 brew install source-highlight
 brew install ansible
 brew install shellcheck
+brew install neovim/neovim/neovim
+brew install optipng
+brew install jpegoptim
+brew install rtmpdump
 
 #brew cask install alfred
 #brew cask install google-chrome
