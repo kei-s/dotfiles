@@ -1,3 +1,5 @@
+[include]
+  path = .gitconfig.os
 [user]
   email = kei.shiratsuchi@gmail.com
   name = kei-s
