@@ -5,7 +5,7 @@
 brew update
 brew upgrade
 
-brew install caskroom/cask/brew-cask
+#brew install caskroom/cask/brew-cask
 
 brew install zsh
 brew install zsh-completions
