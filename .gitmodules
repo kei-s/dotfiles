@@ -1,9 +1,9 @@
-[submodule ".vim/vundle"]
-	path = .vim/vundle
+[submodule "dot.vim/vundle"]
+	path = dot.vim/vundle
 	url = https://github.com/gmarik/vundle.git
-[submodule ".zsh.d/zsh-completions"]
-	path = .zsh.d/zsh-completions
+[submodule "dot.zsh.d/zsh-completions"]
+	path = dot.zsh.d/zsh-completions
 	url = git://github.com/zsh-users/zsh-completions.git
-[submodule ".zsh.d/zsh-notify"]
-	path = .zsh.d/zsh-notify
+[submodule "dot.zsh.d/zsh-notify"]
+	path = dot.zsh.d/zsh-notify
 	url = https://github.com/marzocchi/zsh-notify

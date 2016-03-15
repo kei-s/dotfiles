@@ -1,5 +1,5 @@
-.vim/.netrwhist
-.vim/bundle
-.vimperator/info
-.zsh.d/zshrc.local
-.zsh.d/zshenv.local
+dot.vim/.netrwhist
+dot.vim/bundle
+dot.vimperator/info
+dot.zsh.d/zshrc.local
+dot.zsh.d/zshenv.local
