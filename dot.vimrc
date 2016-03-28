@@ -10,7 +10,7 @@ endif
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/sudo.vim'
 Plugin 'Shougo/neocomplete'
 Plugin 'scrooloose/nerdcommenter'
