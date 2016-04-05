@@ -15,7 +15,6 @@ brew install zsh-completions
 # chsh -s /usr/local/bin/zsh
 
 brew install coreutils
-brew install grep
 brew install git
 brew install tig
 brew install curl --with-rtmp
@@ -45,6 +44,9 @@ brew install neovim/neovim/neovim
 brew install optipng
 brew install jpegoptim
 brew install rtmpdump
+brew install rbenv
+brew install homebrew/binary/ngrok2
+brew install osx-cross/avr/avr-libc
 
 #brew cask install alfred
 #brew cask install google-chrome
