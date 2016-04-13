@@ -3,6 +3,7 @@
 [user]
   email = kei.shiratsuchi@gmail.com
   name = kei-s
+  signingkey = D76F513E
 [color]
   ui = auto
 [core]
