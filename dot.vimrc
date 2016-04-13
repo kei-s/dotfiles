@@ -239,6 +239,7 @@ let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 let g:syntastic_go_checkers = ['go', 'golint']
 let g:syntastic_elixir_checkers = ['elixir']
 let g:syntastic_enable_elixir_checker = 1
+let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " vim-go
 au FileType go nmap <Leader>gd <Plug>(go-doc)
