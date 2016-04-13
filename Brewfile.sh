@@ -45,8 +45,11 @@ brew install optipng
 brew install jpegoptim
 brew install rtmpdump
 brew install rbenv
+brew install pyenv
 brew install homebrew/binary/ngrok2
 brew install osx-cross/avr/avr-libc
+brew install dfu-programmer
+brew install mecab
 
 #brew cask install alfred
 #brew cask install google-chrome
