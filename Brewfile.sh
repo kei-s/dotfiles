@@ -51,6 +51,7 @@ brew install osx-cross/avr/avr-libc
 brew install dfu-programmer
 brew install mecab
 brew install gnupg
+brew install graphviz
 
 #brew cask install alfred
 #brew cask install google-chrome
