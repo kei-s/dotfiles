@@ -12,7 +12,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-scripts/sudo.vim'
-Plugin 'Shougo/neocomplete'
+if has("nvim")
+  Plugin 'Shougo/deoplete.nvim'
+elseif 1
+  Plugin 'Shougo/neocomplete'
+endif
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'clones/vim-l9'
 Plugin 'edsono/vim-matchit'
@@ -189,23 +193,28 @@ autocmd BufRead,BufNewFile {Guardfile,Capfile} set ft=ruby
 " JSON.vim
 autocmd! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
 
-" neocomplete.vim
-let g:neocomplete#enable_at_startup = 1
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+if has("nvim")
+  " deoplete
+  let g:deoplete#enable_at_startup = 1
+elseif 1
+  " neocomplete.vim
+  let g:neocomplete#enable_at_startup = 1
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplete#close_popup()
+  inoremap <expr><C-e>  neocomplete#cancel_popup()
+endif
 
 " surround.vim
 " Ruby http://d.hatena.ne.jp/ursm/20080402/1207150539

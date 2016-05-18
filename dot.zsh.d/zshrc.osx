@@ -1,3 +1,7 @@
+# use neovim
+export EDITOR="nvim"
+alias vim="nvim"
+
 # homebrew
 export PATH="/usr/local/bin:$PATH"
 

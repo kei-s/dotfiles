@@ -21,6 +21,9 @@ namespace :dotfiles do
     link_files.each do |file|
       ln_sf file[:from], file[:to]
     end
+    # for neovim
+    ln_sf File.expand_path('~/.vim'), File.expand_path('~/.config/nvim')
+    ln_sf File.expand_path('~/.vimrc'), File.expand_path('~/.config/nvim/init.vim')
   end
 
   namespace :symlink do

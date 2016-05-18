@@ -1,5 +1,7 @@
+dot.vim/*-rplugin~
 dot.vim/.netrwhist
+dot.vim/init.vim
 dot.vim/bundle
 dot.vimperator/info
-dot.zsh.d/zshrc.local
 dot.zsh.d/zshenv.local
+dot.zsh.d/zshrc.local
