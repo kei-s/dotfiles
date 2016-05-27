@@ -18,6 +18,7 @@ brew install ansible
 brew install coreutils
 brew install curl --with-rtmp
 brew install dfu-programmer
+brew install direnv
 brew install elasticsearch
 brew install git
 brew install gnupg
