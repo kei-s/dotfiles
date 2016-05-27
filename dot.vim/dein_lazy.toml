@@ -1,0 +1,60 @@
+[[plugins]]
+repo = 'Shougo/neocomplete'
+if = "has('lua')"
+on_event = 'InsertEnter'
+hook_source = '''
+  " neocomplete.vim
+  let g:neocomplete#enable_at_startup = 1
+  " Recommended key-mappings.
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplete#close_popup()
+  inoremap <expr><C-e>  neocomplete#cancel_popup()
+'''
+
+[[plugins]]
+repo = 'tpope/vim-bundler'
+on_if = 1
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+on_if = 1
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+on_if = 1
+hook_add = '''
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_check_on_open = 0
+  let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+  let g:syntastic_go_checkers = ['go', 'golint']
+  let g:syntastic_elixir_checkers = ['elixir']
+  let g:syntastic_enable_elixir_checker = 1
+  let g:syntastic_python_checkers = ['pyflakes', 'pep8']
+'''
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter'
+on_map = ',c'
+
+[[plugins]]
+repo = 'vim-scripts/JSON.vim'
+on_ft = 'json'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'coffee'
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'

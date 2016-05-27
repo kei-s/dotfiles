@@ -6,41 +6,41 @@ if !exists('s:loaded_my_vimrc')
   set nocompatible  " to use many extensions of Vim.
 endif
 
-" for vundle
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-scripts/sudo.vim'
-if has("nvim")
-  Plugin 'Shougo/deoplete.nvim'
-elseif 1
-  Plugin 'Shougo/neocomplete'
+"if has("nvim")
+"elseif 1
+  "Plugin 'Shougo/neocomplete'
+"endif
+"Plugin 'clones/vim-l9'
+"Plugin 'edsono/vim-matchit'
+"Plugin 'digitaltoad/vim-jade'
+"Plugin 'cakebaker/scss-syntax.vim'
+"Plugin 'kien/ctrlp.vim'
+"Plugin 'Lokaltog/vim-easymotion'
+"Plugin 'rizzatti/funcoo.vim'
+"Plugin 'rizzatti/dash.vim'
+"Plugin 'mustache/vim-mustache-handlebars'
+"Plugin 'slim-template/vim-slim'
+"Plugin 'fatih/vim-go'
+"Plugin 'elixir-lang/vim-elixir'
+
+" for dein.vim
+if &compatible
+  set nocompatible               " Be iMproved
 endif
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'clones/vim-l9'
-Plugin 'edsono/vim-matchit'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-bundler'
-Plugin 'digitaltoad/vim-jade'
-Plugin 'tpope/vim-fugitive'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-scripts/JSON.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/syntastic'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'rizzatti/funcoo.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'slim-template/vim-slim'
-Plugin 'fatih/vim-go'
-Plugin 'elixir-lang/vim-elixir'
-call vundle#end()
+set runtimepath^=~/src/github.com/Shougo/dein.vim
+let s:dein_dir = expand('~/.cache/dein')
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir, split(glob('~/.vim/*.toml'), '\n'))
+  call dein#load_toml('~/.vim/dein.toml',      {'lazy': 0})
+  call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
+  call dein#end()
+  call dein#save_state()
+endif
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
 
 " Options  "{{{2
 if (1 < &t_Co || has('gui')) && has('syntax')
@@ -192,63 +192,6 @@ autocmd BufRead,BufNewFile {Guardfile,Capfile} set ft=ruby
 " Plugins
 " JSON.vim
 autocmd! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
-
-if has("nvim")
-  " deoplete
-  let g:deoplete#enable_at_startup = 1
-elseif 1
-  " neocomplete.vim
-  let g:neocomplete#enable_at_startup = 1
-  " Recommended key-mappings.
-  " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function()
-    return neocomplete#close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-  endfunction
-  " <TAB>: completion.
-  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-  " <C-h>, <BS>: close popup and delete backword char.
-  inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><C-y>  neocomplete#close_popup()
-  inoremap <expr><C-e>  neocomplete#cancel_popup()
-endif
-
-" surround.vim
-" Ruby http://d.hatena.ne.jp/ursm/20080402/1207150539
-let g:surround_{char2nr('%')} = "%(\r)"
-let g:surround_{char2nr('w')} = "%w(\r)"
-let g:surround_{char2nr('#')} = "#{\r}"
-let g:surround_{char2nr('e')} = "begin \r end"
-let g:surround_{char2nr('i')} = "if \1if\1 \r end"
-let g:surround_{char2nr('u')} = "unless \1unless\1 \r end"
-let g:surround_{char2nr('c')} = "class \1class\1 \r end"
-let g:surround_{char2nr('m')} = "module \1module\1 \r end"
-let g:surround_{char2nr('d')} = "def \1def\1\2args\r..*\r(&)\2 \r end"
-let g:surround_{char2nr('p')} = "\1method\1 do \2args\r..*\r|&| \2\r end"
-let g:surround_{char2nr('P')} = "\1method\1 {\2args\r..*\r|&|\2 \r }"
-
-" vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
-if (&t_Co ==# 256) && !has('gui_running')
-  let g:indent_guides_auto_colors = 0
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=233
-  autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=232
-endif
-
-" Dash.app
-nmap <silent> <leader>d <Plug>DashSearch
-
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_ruby_checkers = ['mri', 'rubocop']
-let g:syntastic_go_checkers = ['go', 'golint']
-let g:syntastic_elixir_checkers = ['elixir']
-let g:syntastic_enable_elixir_checker = 1
-let g:syntastic_python_checkers = ['pyflakes', 'pep8']
 
 " vim-go
 au FileType go nmap <Leader>gd <Plug>(go-doc)
