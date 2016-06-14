@@ -1,4 +1,7 @@
 [core]
   editor = nvim
+  pager = `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight | less
+[interactive]
+  diffFilter = `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight
 [credential]
   helper = osxkeychain

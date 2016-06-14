@@ -7,7 +7,6 @@
 [color]
   ui = auto
 [core]
-  pager = lv -c
   excludesfile = ~/dotfiles/global.gitignore
 [merge]
   tool = vimdiff
