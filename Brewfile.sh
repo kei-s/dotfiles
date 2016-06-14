@@ -48,6 +48,7 @@ brew install redis
 brew install rtmpdump
 brew install shellcheck
 brew install source-highlight
+brew install teensy_loader_cli
 brew install terminal-notifier
 brew install tig
 brew install tree
