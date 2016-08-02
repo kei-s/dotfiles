@@ -38,6 +38,7 @@ brew install nkf
 brew install nodejs
 brew install optipng
 brew install osx-cross/avr/avr-libc
+brew install packer
 brew install peco
 brew install phantomjs
 brew install postgresql
@@ -48,6 +49,7 @@ brew install redis
 brew install rtmpdump
 brew install shellcheck
 brew install source-highlight
+brew install ssh-copy-id
 brew install teensy_loader_cli
 brew install terminal-notifier
 brew install tig
