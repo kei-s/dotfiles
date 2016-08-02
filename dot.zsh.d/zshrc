@@ -229,6 +229,7 @@ case $(uname) in
     ;;
 esac
 alias ll=la
+alias less='less --no-init --quit-if-one-screen'
 alias -g L="| less"
 alias -g G="| grep"
 alias -g W="| wc"
