@@ -187,7 +187,7 @@ set completeopt=menuone
 
 " filetype
 " ruby
-autocmd BufRead,BufNewFile {Guardfile,Capfile} set ft=ruby
+autocmd BufRead,BufNewFile {Guardfile,Capfile,Vagrantfile} set ft=ruby
 
 " Plugins
 " JSON.vim
