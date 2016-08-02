@@ -7,7 +7,12 @@ bind main o !@hub browse -- commit/%(commit)
 bind diff o !@hub browse -- commit/%(commit)
 bind log o !@hub browse -- commit/%(commit)
 
-# git rebase -i in tig
+# git rebase / squash / fixup
 # from http://sue445.hatenablog.com/entry/2014/08/07/015811
-bind main    R !git rebase -i %(commit)
-bind diff    R !git rebase -i %(commit)
+# from http://qiita.com/yuku_t/items/04853c9aecb40edadbb2
+bind main R ?!git rebase -i %(commit)
+bind diff R ?!git rebase -i %(commit)
+bind diff F ?!git commit --fixup %(commit)
+bind diff S ?!git commit --squash %(commit)
+bind main F ?!git commit --fixup %(commit)
+bind main S ?!git commit --squash %(commit)
