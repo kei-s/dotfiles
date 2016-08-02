@@ -17,3 +17,6 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # added by travis gem
 [ -f /Users/kei/.travis/travis.sh ] && source /Users/kei/.travis/travis.sh
+
+# iTerm 2 integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
