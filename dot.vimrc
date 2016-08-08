@@ -78,8 +78,8 @@ set laststatus=2 "ステータスラインを常に表示
 set ruler   " show the cursor position all the time
 set showcmd   "入力中のコマンドをステータスに表示する
 set showmode
-set title
-set titlestring=Vim:\ %f\ %h%r%m
+"set title
+"set titlestring=Vim:\ %f\ %h%r%m
 set ttimeoutlen=50  " Reduce annoying delay for key codes, especially <Esc>...
 set wildmenu " コマンドライン補完するときに強化されたものを使う(参照 :help wildmenu)
 set viminfo='50,<1000,s100,\"50 " read/write a .viminfo file, don't store more than
