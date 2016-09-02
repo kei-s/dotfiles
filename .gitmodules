@@ -4,3 +4,6 @@
 [submodule "dot.zsh.d/zsh-notify"]
 	path = dot.zsh.d/zsh-notify
 	url = https://github.com/marzocchi/zsh-notify
+[submodule "dot.zsh.d/docker-zsh-completion"]
+	path = dot.zsh.d/docker-zsh-completion
+	url = https://github.com/felixr/docker-zsh-completion
