@@ -1,4 +1,5 @@
 require 'pathname'
+require 'fileutils'
 
 HOME = Pathname.new(ENV['HOME'])
 
@@ -22,6 +23,7 @@ namespace :dotfiles do
       ln_sf file[:from], file[:to]
     end
     # for neovim
+    FileUtils.mkdir_p(File.expand_path('.config', ENV['HOME']))
     ln_sf File.expand_path('~/.vim'), File.expand_path('~/.config/nvim')
     ln_sf File.expand_path('~/.vimrc'), File.expand_path('~/.config/nvim/init.vim')
   end
