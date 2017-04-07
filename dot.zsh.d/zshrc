@@ -154,7 +154,7 @@ REPORTTIME=3
 
 # login logout
 watch="all"
-log
+#log
 setopt ignore_eof
 
 # word
