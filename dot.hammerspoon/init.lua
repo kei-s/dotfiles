@@ -33,6 +33,10 @@ local function handleEvent(e)
         jp()
     end
 
+    if keyCode == semicolon then
+      e:setFlags({['shift'] = not(e:getFlags()['shift'])})
+    end
+
     prevKeyCode = keyCode
 end
 
