@@ -55,3 +55,9 @@ repo = 'vim-scripts/sudo.vim'
 [[plugins]]
 repo = 'rizzatti/dash.vim'
 hook_source = 'nmap <silent> <Leader>d <Plug>DashSearch'
+
+[[plugins]]
+repo = 'tpope/vim-bundler'
+
+[[plugins]]
+repo = 'tpope/vim-rails'

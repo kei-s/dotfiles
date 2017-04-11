@@ -6,23 +6,6 @@ if !exists('s:loaded_my_vimrc')
   set nocompatible  " to use many extensions of Vim.
 endif
 
-"if has("nvim")
-"elseif 1
-  "Plugin 'Shougo/neocomplete'
-"endif
-"Plugin 'clones/vim-l9'
-"Plugin 'edsono/vim-matchit'
-"Plugin 'digitaltoad/vim-jade'
-"Plugin 'cakebaker/scss-syntax.vim'
-"Plugin 'kien/ctrlp.vim'
-"Plugin 'Lokaltog/vim-easymotion'
-"Plugin 'rizzatti/funcoo.vim'
-"Plugin 'rizzatti/dash.vim'
-"Plugin 'mustache/vim-mustache-handlebars'
-"Plugin 'slim-template/vim-slim'
-"Plugin 'fatih/vim-go'
-"Plugin 'elixir-lang/vim-elixir'
-
 " for dein.vim
 if &compatible
   set nocompatible               " Be iMproved
@@ -30,7 +13,7 @@ endif
 set runtimepath^=~/src/github.com/Shougo/dein.vim
 let s:dein_dir = expand('~/.cache/dein')
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir, split(glob('~/.vim/*.toml'), '\n'))
+  call dein#begin(s:dein_dir)
   call dein#load_toml('~/.vim/dein.toml',      {'lazy': 0})
   call dein#load_toml('~/.vim/dein_lazy.toml', {'lazy': 1})
   call dein#end()
@@ -59,7 +42,6 @@ if (1 < &t_Co || has('gui')) && has('syntax')
 endif
 
 filetype plugin indent on
-
 
 set ambiwidth=double
 set smartindent "インデントはスマートインデント
