@@ -120,8 +120,8 @@ RPROMPT='[%~]$RUBY_PROMPT$(vcs_info_with_color)$EXIT_PROMPT'
 # Additional completion definitions https://github.com/zsh-users/zsh-completions
 # Additional completion definitions for homebrew
 fpath=(~/.zsh.d/zsh-completions/src /usr/local/share/zsh/site-functions $fpath)
-# Additional docker definitions https://github.com/felixr/docker-zsh-completion
-fpath=(~/.zsh.d/docker-zsh-completion/src $fpath)
+# Additional docker definitions https://github.com/docker/docker/blob/master/contrib/completion/zsh/_docker
+fpath=(~/src/github.com/docker/docker/contrib/completion/zsh $fpath)
 # Auto Completion
 autoload -U compinit
 compinit -u
