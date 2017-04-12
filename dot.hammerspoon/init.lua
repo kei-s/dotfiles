@@ -43,3 +43,20 @@ end
 
 eventtap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent)
 eventtap:start()
+
+-- Quit by long tap Cmd+Q
+local holdSecond = 0.2
+local holdingEpoch
+local cmdq
+local function cmdqPressed()
+  holdingEpoch = hs.timer.secondsSinceEpoch()
+end
+local function cmdqReleasedOrRepeated()
+  holding = hs.timer.secondsSinceEpoch() - holdingEpoch
+  if holding > holdSecond then
+    cmdq:disable()
+    hs.eventtap.keyStroke({'cmd'}, 'q', 1000)
+    hs.timer.doAfter(0.1, function () cmdq:enable() end)
+  end
+end
+cmdq = hs.hotkey.bind({'cmd'}, 'q', cmdqPressed, cmdqReleasedOrRepeated, cmdqReleasedOrRepeated)
