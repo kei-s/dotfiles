@@ -19,12 +19,12 @@ local function eng()
 end
 
 local function handleEvent(e)
+    -- Eisu/Kana by right/left cmd key
     local keyCode = e:getKeyCode()
     local eventType = e:getType()
     if keyCode == escape then
         eng()
     end
-
 
     local isCmdKeyUp = not(e:getFlags()['cmd']) and eventType == hs.eventtap.event.types.flagsChanged
     if isCmdKeyUp and prevKeyCode == leftCommand then
@@ -33,6 +33,7 @@ local function handleEvent(e)
         jp()
     end
 
+    -- Swap ; and :
     if keyCode == semicolon then
       e:setFlags({['shift'] = not(e:getFlags()['shift'])})
     end
