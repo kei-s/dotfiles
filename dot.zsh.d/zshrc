@@ -232,10 +232,13 @@ case $(uname) in
 esac
 alias ll=la
 alias less='less --no-init --quit-if-one-screen'
+alias tree='tree -NC'
 alias -g L="| less"
 alias -g G="| grep"
 alias -g W="| wc"
 alias -g C="| pbcopy"
+alias -g T="| tee"
+alias -g TA="2>&1 | tee"
 
 # title
 update_title() {
