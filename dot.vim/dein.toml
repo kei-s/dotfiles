@@ -61,3 +61,22 @@ repo = 'tpope/vim-bundler'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'bdauria/angular-cli.vim'
+hook_add = '''
+  autocmd VimEnter * if globpath('.,..','node_modules/@angular') != '' | call angular_cli#init() | endif
+'''
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
+hook_add = '''
+  autocmd FileType typescript setlocal expandtab shiftwidth=4 softtabstop=4
+'''
+
+[[plugins]]
+repo = 'Quramy/tsuquyomi'
+hook_add = '''
+  let g:tsuquyomi_disable_quickfix = 1
+'''
