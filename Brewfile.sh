@@ -31,6 +31,7 @@ brew install jpegoptim
 brew install jq
 brew install lv
 brew install mecab
+brew install mecab-ipadic
 brew install mercurial
 brew install mysql
 brew install neovim/neovim/neovim
@@ -56,6 +57,7 @@ brew install tig
 brew install tree
 brew install vim --with-lua
 brew install wget
+brew install yarn
 
 #brew cask install alfred
 #brew cask install anvil
