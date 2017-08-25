@@ -80,3 +80,6 @@ repo = 'Quramy/tsuquyomi'
 hook_add = '''
   let g:tsuquyomi_disable_quickfix = 1
 '''
+
+[[plugins]]
+repo = 'JuliaEditorSupport/julia-vim'
