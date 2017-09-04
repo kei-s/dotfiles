@@ -48,6 +48,7 @@ hook_add = '''
   let g:syntastic_enable_elixir_checker = 1
   let g:syntastic_python_checkers = ['flake8']
   let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+  let g:syntastic_rust_checkers = ['cargo']
 '''
 
 [[plugins]]
@@ -73,3 +74,20 @@ on_ft = 'javascript'
 [[plugins]]
 repo = 'mattn/emmet-vim'
 on_ft = 'html'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+
+[[plugins]]
+# PREPARE: cargo install racer
+repo = 'racer-rust/vim-racer'
+hook_add = '''
+  let g:racer_cmd = "/Users/shiratsuchi/.cargo/bin/racer"
+  let g:neocomplete#enable_at_startup = 1
+  if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+  endif
+  let g:neocomplete#sources#omni#input_patterns.rust = '[^.[:digit:] *\t]\%(\.\|\::\)\%(\h\w*\)\?'
+'''
+on_ft = 'rust'
