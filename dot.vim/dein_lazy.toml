@@ -91,3 +91,7 @@ hook_add = '''
   let g:neocomplete#sources#omni#input_patterns.rust = '[^.[:digit:] *\t]\%(\.\|\::\)\%(\h\w*\)\?'
 '''
 on_ft = 'rust'
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
