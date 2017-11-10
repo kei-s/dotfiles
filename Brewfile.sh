@@ -43,7 +43,7 @@ brew install packer
 brew install peco
 brew install phantomjs
 brew install postgresql
-brew install pyenv
+brew install python3
 brew install qt
 brew install rbenv
 brew install redis

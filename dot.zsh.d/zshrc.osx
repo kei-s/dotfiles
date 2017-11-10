@@ -7,10 +7,6 @@ export SYS_NOTIFIER="/usr/local/bin/terminal-notifier"
 export ATOM_PATH="/opt/homebrew-cask/Caskroom/atom/latest/Atom.app"
 source ~/.zsh.d/zsh-notify/notify.plugin.zsh
 
-# pyenv
-export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
 # added by travis gem
 [ -f /Users/kei/.travis/travis.sh ] && source /Users/kei/.travis/travis.sh
 
