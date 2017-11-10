@@ -181,6 +181,9 @@ endfunction
 " ruby
 autocmd BufRead,BufNewFile {Guardfile,Capfile,Vagrantfile} set ft=ruby
 
+" groovy
+autocmd BufRead,BufNewFile {Jenkinsfile} set ft=groovy
+
 " Plugins
 " JSON.vim
 autocmd! BufRead,BufNewFile *.json set filetype=json foldmethod=syntax
