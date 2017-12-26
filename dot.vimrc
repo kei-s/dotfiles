@@ -176,6 +176,12 @@ function! s:copy_html() abort
   bdelete!
 endfunction
 
+" Search for the configuration file in the current directory and upwards
+" https://github.com/vim-syntastic/syntastic#4-faq
+function! FindConfig(prefix, what, where)
+  let cfg = findfile(a:what, escape(a:where, ' ') . ';')
+  return cfg !=# '' ? ' ' . a:prefix . ' ' . shellescape(cfg) : ''
+endfunction
 
 " filetype
 " ruby

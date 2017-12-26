@@ -36,7 +36,7 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'vim-syntastic/syntastic'
 on_if = 1
 hook_add = '''
   let g:syntastic_always_populate_loc_list = 1
@@ -49,6 +49,10 @@ hook_add = '''
   let g:syntastic_python_checkers = ['flake8']
   let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
   let g:syntastic_rust_checkers = ['cargo']
+  let g:syntastic_markdown_checkers = ['mdl', 'textlint']
+  autocmd FileType markdown let b:syntastic_markdown_textlint_args =
+    \ get(g:, 'syntastic_markdown_textlint_args', '') .
+    \ FindConfig('-c', '.textlintrc', expand('<afile>:p:h', 1))
 '''
 
 [[plugins]]
