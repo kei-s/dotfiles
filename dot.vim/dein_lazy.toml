@@ -99,3 +99,7 @@ on_ft = 'rust'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+
+[[plugins]]
+repo = 'elixir-editors/vim-elixir'
+on_ft = 'elixir'
