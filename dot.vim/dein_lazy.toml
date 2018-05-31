@@ -56,6 +56,8 @@ hook_add = '''
   autocmd FileType markdown let b:syntastic_markdown_textlint_args =
     \ get(g:, 'syntastic_markdown_textlint_args', '') .
     \ FindConfig('-c', '.textlintrc', expand('<afile>:p:h', 1))
+  let g:syntastic_lua_checkers = ["luac", "luacheck"]
+  let g:syntastic_lua_luacheck_args = "--no-unused-args"
 '''
 
 [[plugins]]
