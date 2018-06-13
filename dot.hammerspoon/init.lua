@@ -41,8 +41,18 @@ local function handleEvent(e)
     prevKeyCode = keyCode
 end
 
-eventtap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent)
-eventtap:start()
+hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent):start()
+
+local function playpause(e)
+  local systemKeyEvent = e:systemKey()
+  if systemKeyEvent
+    and systemKeyEvent.down
+    and systemKeyEvent.key == "PLAY" then
+    hs.itunes.playpause()
+  end
+end
+
+hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined}, playpause):start()
 
 -- Quit by long tap Cmd+Q
 local holdSecond = 0.2
