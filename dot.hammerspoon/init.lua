@@ -41,7 +41,9 @@ local function handleEvent(e)
     prevKeyCode = keyCode
 end
 
-hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent):start()
+-- use global variant for GC
+keyTap = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleEvent)
+keyTap:start()
 
 local function playpause(e)
   local systemKeyEvent = e:systemKey()
@@ -52,7 +54,9 @@ local function playpause(e)
   end
 end
 
-hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined}, playpause):start()
+-- use global variant for GC
+playTap = hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined}, playpause)
+playTap:start()
 
 -- Quit by long tap Cmd+Q
 local holdSecond = 0.2
@@ -69,4 +73,5 @@ local function cmdqReleasedOrRepeated()
     hs.timer.doAfter(0.1, function () cmdq:enable() end)
   end
 end
+-- use global variant for GC
 cmdq = hs.hotkey.bind({'cmd'}, 'q', cmdqPressed, cmdqReleasedOrRepeated, cmdqReleasedOrRepeated)
