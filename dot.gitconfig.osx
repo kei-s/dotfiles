@@ -4,3 +4,10 @@
   diffFilter = `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight
 [credential]
   helper = osxkeychain
+# Kryptonite
+[gpg]
+  program = /usr/local/bin/krgpg
+[commit]
+  gpgSign = true
+[tag]
+  forceSignAnnotated = true

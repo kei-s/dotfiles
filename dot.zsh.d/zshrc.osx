@@ -12,3 +12,6 @@ source ~/.zsh.d/zsh-notify/notify.plugin.zsh
 
 # iTerm 2 integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Kryptonite
+export GPG_TTY=$(tty)
