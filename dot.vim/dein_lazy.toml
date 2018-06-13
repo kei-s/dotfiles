@@ -39,6 +39,9 @@ hook_source = '''
 repo = 'vim-syntastic/syntastic'
 on_if = 1
 hook_add = '''
+  let g:syntastic_mode_map = {
+      \ "mode": "active",
+      \ "passive_filetypes": ["elixir"] }
   let g:syntastic_always_populate_loc_list = 1
   let g:syntastic_check_on_open = 0
   let g:syntastic_aggregate_errors = 1
