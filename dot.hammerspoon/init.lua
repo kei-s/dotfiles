@@ -75,3 +75,22 @@ local function cmdqReleasedOrRepeated()
 end
 -- use global variant for GC
 cmdq = hs.hotkey.bind({'cmd'}, 'q', cmdqPressed, cmdqReleasedOrRepeated, cmdqReleasedOrRepeated)
+
+-- Dash keyboard shortcuts
+-- See https://github.com/STRML/init/blob/5f69183151b7d3fc013cf621ba96b626bd7824f0/hammerspoon/init.lua#L305-L340
+local dashKeybinds = {
+    hs.hotkey.new({"ctrl"}, "j", function()
+        hs.eventtap.keyStroke({"cmd", "alt"}, "left")
+    end),
+    hs.hotkey.new({"ctrl"}, "k", function()
+        hs.eventtap.keyStroke({"cmd", "alt"}, "right")
+    end)
+}
+local dashWatcher = hs.application.watcher.new(function(name, eventType, app)
+    if eventType ~= hs.application.watcher.activated then return end
+    local fnName = name == "Dash" and "enable" or "disable"
+    for i, keybind in ipairs(dashKeybinds) do
+        keybind[fnName](keybind)
+    end
+end)
+dashWatcher:start()
