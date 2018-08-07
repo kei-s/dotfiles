@@ -69,7 +69,7 @@ local function cmdqReleasedOrRepeated()
   holding = hs.timer.secondsSinceEpoch() - holdingEpoch
   if holding > holdSecond then
     cmdq:disable()
-    hs.eventtap.keyStroke({'cmd'}, 'q', 1000)
+    keyStroke({'cmd'}, 'q')
     hs.timer.doAfter(0.1, function () cmdq:enable() end)
   end
 end
@@ -80,10 +80,10 @@ cmdq = hs.hotkey.bind({'cmd'}, 'q', cmdqPressed, cmdqReleasedOrRepeated, cmdqRel
 -- See https://github.com/STRML/init/blob/5f69183151b7d3fc013cf621ba96b626bd7824f0/hammerspoon/init.lua#L305-L340
 local dashKeybinds = {
     hs.hotkey.new({"ctrl"}, "j", function()
-        hs.eventtap.keyStroke({"cmd", "alt"}, "left")
+        keyStroke({"cmd", "alt"}, "left")
     end),
     hs.hotkey.new({"ctrl"}, "k", function()
-        hs.eventtap.keyStroke({"cmd", "alt"}, "right")
+        keyStroke({"cmd", "alt"}, "right")
     end)
 }
 local dashWatcher = hs.application.watcher.new(function(name, eventType, app)
