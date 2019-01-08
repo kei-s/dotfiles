@@ -86,7 +86,7 @@ local dashKeybinds = {
         keyStroke({"cmd", "alt"}, "right")
     end)
 }
-local dashWatcher = hs.application.watcher.new(function(name, eventType, app)
+dashWatcher = hs.application.watcher.new(function(name, eventType, app)
     if eventType ~= hs.application.watcher.activated then return end
     local fnName = name == "Dash" and "enable" or "disable"
     for i, keybind in ipairs(dashKeybinds) do
