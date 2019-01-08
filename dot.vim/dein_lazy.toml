@@ -62,7 +62,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'scrooloose/nerdcommenter'
-on_map = ',c'
+on_map = 'gc'
 
 [[plugins]]
 repo = 'vim-scripts/JSON.vim'
