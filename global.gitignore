@@ -3,3 +3,8 @@ doc/tags
 doc/tags-ja
 .vscode
 .elixir_ls
+.ensime
+.ensime_cache
+ensime-langserver.log
+pc.stdout.log
+.tool-versions
