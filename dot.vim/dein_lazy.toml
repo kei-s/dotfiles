@@ -112,3 +112,7 @@ on_ft = 'elixir'
 [[plugins]]
 repo = 'posva/vim-vue'
 on_ft = 'vue'
+
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = 'fish'
