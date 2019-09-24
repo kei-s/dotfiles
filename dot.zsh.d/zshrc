@@ -356,3 +356,7 @@ if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then source "${HOME}/go
 if exists hub; then
   eval "$(hub alias -s)"
 fi
+
+# asdf setting
+if [ -f "$HOME/src/github.com/asdf-vm/asdf/asdf.sh" ]; then source "$HOME/src/github.com/asdf-vm/asdf/asdf.sh"; fi
+if [ -f "$HOME/src/github.com/asdf-vm/asdf/completions/asdf.bash" ]; then source "$HOME/src/github.com/asdf-vm/asdf/completions/asdf.bash"; fi
