@@ -55,8 +55,8 @@ local function playpause(e)
 end
 
 -- use global variant for GC
-playTap = hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined}, playpause)
-playTap:start()
+--- playTap = hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined}, playpause)
+--- playTap:start()
 
 -- Quit by long tap Cmd+Q
 local holdSecond = 0.2
