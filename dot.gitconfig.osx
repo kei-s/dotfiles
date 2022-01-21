@@ -1,12 +1,13 @@
+[user]
+  signingkey = DB34D3D89A42E0E8DB57BEDE0F0D461322754375
 [core]
   pager = `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight | less
 [interactive]
   diffFilter = `brew --prefix`/share/git-core/contrib/diff-highlight/diff-highlight
 [credential]
   helper = osxkeychain
-# Kryptonite
 [gpg]
-  program = /usr/local/bin/krgpg
+  program = /usr/local/bin/gpg
 [commit]
   gpgSign = true
 [tag]
