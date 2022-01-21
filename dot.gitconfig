@@ -1,9 +1,8 @@
 [include]
-  path = .gitconfig.os
+  path = ~/.gitconfig.os
 [user]
   email = kei.shiratsuchi@gmail.com
   name = kei-s
-  signingkey = D76F513E
 [color]
   ui = auto
 [core]
@@ -34,9 +33,7 @@
   clean = git lfs clean %f
   smudge = git lfs smudge %f
   required = true
-[gpg]
-	program = /usr/local/bin/krgpg
-[commit]
-	gpgSign = true
-[tag]
-	forceSignAnnotated = true
+[pull]
+	rebase = false
+[init]
+	defaultBranch = main
