@@ -5,3 +5,4 @@ dot.vim/bundle
 dot.vimperator/info
 dot.zsh.d/zshenv.local
 dot.zsh.d/zshrc.local
+dot.docker/
