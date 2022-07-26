@@ -39,3 +39,4 @@ export HISTSIZE=9999
 # rvm-install added line:
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
+. "$HOME/.cargo/env"

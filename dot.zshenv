@@ -17,3 +17,4 @@ export LC_MESSAGES=C
 export LC_MONETARY=C
 export LC_NUMERIC=C
 export LC_TIME=C
+. "$HOME/.cargo/env"

@@ -16,4 +16,4 @@ unset USERNAME
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
 
-export PATH="$HOME/.cargo/bin:$PATH"
+. "$HOME/.cargo/env"
